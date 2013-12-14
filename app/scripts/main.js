@@ -31,10 +31,10 @@ Background.prototype.newWindow = function() {
   var options = {
     id: 'mainWindow',
     frame: (this.ifShowFrame_() ? 'chrome' : 'none'),
-    minWidth: 400,
-    minHeight: 400,
-    width: 700,
-    height: 700
+    minWidth: 800,
+    minHeight: 600,
+    width: 800,
+    height: 600
   };
 
 

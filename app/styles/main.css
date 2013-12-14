@@ -1,1 +1,50 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.uk-navbar {
+    -webkit-app-region: drag;
+    z-index: 1000;
+}
+
+.uk-navbar .uk-navbar-brand {
+    font-weight: 200;
+}
+
+.uk-navbar-nav li span {
+    height: 41px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.editor-container {
+    height: 100%;
+}
+
+.ace_editor {
+    left:0;
+    width:100%;
+    height: calc(100% - 82px);
+    border: none;
+    border-radius: 0;
+}
+
+.closable {
+    position: relative;
+    float:right;
+    right: 10px;
+    bottom: 41px;
+    width: 20px;
+}
+
+.closable:after {
+    content: "\f00d";
+    float: right;
+    font-family: "FontAwesome";
+    text-align: center;
+}

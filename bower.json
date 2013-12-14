@@ -2,5 +2,8 @@
   "name": "splendid",
   "version": "0.0.0",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "~1.2.2"
+  }
 }
