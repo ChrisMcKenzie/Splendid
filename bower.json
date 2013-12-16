@@ -1,9 +1,11 @@
 {
-  "name": "splendid",
-  "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {},
-  "resolutions": {
-    "angular": "~1.2.2"
-  }
+  "name": "Splendid",
+  "version": "0.0.1",
+  "dependencies": {
+  		"angular": "1.2.4",
+  		"uikit": "2.0.x",
+  		"angular-ui-ace": "0.0.x",
+  		"mousetrap": "1.4.6"
+  	},
+  "devDependencies": {}
 }

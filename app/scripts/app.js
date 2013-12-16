@@ -1,10 +1,7 @@
 'use strict';
 
-var splendid = angular.module('splendid', ['ngRoute', 'ui.ace']);
+var splendid = angular.module('splendid', ['ui.ace']);
 
-splendid.config(['$routeProvider', function($routeProvider){
-
-}]);
 
 splendid.run(function($rootScope){
     $rootScope._editorEl = angular.element('#editor')[0];

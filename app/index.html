@@ -4,22 +4,21 @@
         <meta charset="utf-8">
         <title>Splendid</title>
         <!-- build:css styles/app.css -->
-        <link rel="stylesheet" href="lib/uikit/css/uikit.css">
-        <link rel="stylesheet" href="lib/uikit/css/uikit.almost-flat.css">
+        <link rel="stylesheet" href="bower_components/uikit/dist/css/uikit.almost-flat.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
     <body>
         <nav class="uk-navbar uk-navbar-attached" ng-controller="TitleBarCtrl">
             <ul class="uk-navbar-nav">
-                <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-reorder"></i></a></li>
+                <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-bars"></i></a></li>
             </ul>
             <a href="" class="uk-navbar-brand">Splendid</a>
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                     <li><span class="uk-text-muted uk-animation-fade">{{status.message}}</span></li>
-                    <li><a ng-click="maximize()"><i class="uk-icon-resize-full"></i></a></li>
-                    <li><a ng-click="close()"><i class="uk-icon-remove"></i></a></li>
+                    <li><a ng-click="maximize()"><i class="uk-icon-arrows-alt"></i></a></li>
+                    <li><a ng-click="close()"><i class="uk-icon-times"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -47,11 +46,10 @@
 
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/mousetrap/mousetrap.js"></script>
-        <script src="lib/uikit/js/uikit.js"></script>
+        <script src="bower_components/uikit/dist/js/uikit.js"></script>
         <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/file.js"></script>
         <script src="scripts/ui.js"></script>
