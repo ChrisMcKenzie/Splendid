@@ -4,12 +4,32 @@
 		"selected_items":
 		[
 			[
-				"cli",
-				"clickedOnMenu"
+				"get",
+				"File.getCurrentFile"
 			],
 			[
-				"get",
-				"Workspace.getCurrentFile"
+				"bord",
+				"border"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"ng-",
+				"ng-click	AngularJS"
+			],
+			[
+				"current",
+				"currentFile"
+			],
+			[
+				"defe",
+				"deffered"
+			],
+			[
+				"cli",
+				"clickedOnMenu"
 			],
 			[
 				"pr",
@@ -46,10 +66,6 @@
 			[
 				"re",
 				"readFile"
-			],
-			[
-				"ng-",
-				"ng-controller	AngularJS"
 			],
 			[
 				"ng-re",
@@ -206,10 +222,6 @@
 			[
 				"height",
 				"height"
-			],
-			[
-				"min",
-				"min-height"
 			],
 			[
 				"menu",
@@ -399,6 +411,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/scripts/app.js",
+			"settings":
+			{
+				"buffer_size": 4900,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/lib/uikit/js/uikit.js",
+			"settings":
+			{
+				"buffer_size": 60900,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 3038,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/ui.js",
+			"settings":
+			{
+				"buffer_size": 801,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/styles/main.css",
+			"settings":
+			{
+				"buffer_size": 758,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/file.js",
+			"settings":
+			{
+				"buffer_size": 2893,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/manifest.json",
+			"settings":
+			{
+				"buffer_size": 589,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -487,8 +555,10 @@
 	},
 	"file_history":
 	[
-		"/Users/chrism/Projects/omega-ui-edge/app/scripts/app.js",
+		"/Users/chrism/Projects/splendid/app/scripts/test",
+		"/Users/chrism/Projects/Splendid/app/scripts/test",
 		"/Users/chrism/Projects/Splendid/app/scripts/app.js",
+		"/Users/chrism/Projects/omega-ui-edge/app/scripts/app.js",
 		"/Users/chrism/Projects/Splendid/index.html",
 		"/Users/chrism/Projects/Splendid/manifest.json",
 		"/Users/chrism/Projects/Splendid/app/background.js",
@@ -612,9 +682,7 @@
 		"/Users/chrism/Projects/MovieShelf/elements/ms-movie-modal.html",
 		"/Users/chrism/Projects/MovieShelf/elements/ms-menu-item.html",
 		"/Users/chrism/Projects/MovieShelf/elements/ms-icon-button.html",
-		"/Users/chrism/Projects/MovieShelf/elements/css/ms-menu-button.css",
-		"/Users/chrism/Projects/MovieShelf/elements/css/ms-app.css",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-toolbar.html"
+		"/Users/chrism/Projects/MovieShelf/elements/css/ms-menu-button.css"
 	],
 	"find":
 	{
@@ -633,6 +701,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"offcan",
+			"A",
+			"L",
+			"-",
+			"this._buildKeyHash",
+			"addCommand",
+			"command",
+			"ile",
 			"fileName",
 			"_editor",
 			"js",
@@ -752,15 +828,7 @@
 			"}\n",
 			".navbar ",
 			"title",
-			"svg",
-			"images",
-			"tk",
-			"assets",
-			"../../../",
-			"255",
-			"node_modules/",
-			"../img",
-			"span3"
+			"svg"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -778,8 +846,225 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/scripts/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								622,
+								622
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1940.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/lib/uikit/js/uikit.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 60900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28355,
+								28361
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 23460.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								990,
+								990
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 711.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/scripts/ui.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 801,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								427,
+								427
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/styles/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 758,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								529,
+								529
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 466.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/scripts/file.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2893,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1971,
+								1971
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 589,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
