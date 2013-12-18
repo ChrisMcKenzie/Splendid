@@ -5,5 +5,5 @@ dist
 .sass-cache
 app/bower_components
 
-*.sublime-workspace
+*.sublime*
 
