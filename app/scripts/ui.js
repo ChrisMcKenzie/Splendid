@@ -22,12 +22,12 @@ splendid.factory('UI', function($rootScope, $q, $timeout, File){
                 keys: ['ctrl+alt+right', 'command+option+right'],
             }, function(){
                 //console.log('movin\' on up!');
-                var index = $scope.files.indexOf($rootScope.currentFile) + 1;
+                var index = File.get(File.getCurrentFile().name) + 1;
                 //console.log(index)
-                if(index > -1 && index < $scope.files.length)
-                    File.setCurrentFile($scope.files[index]);
+                if(index > -1 && index < $rootScope.files.length)
+                    File.setCurrentFile($rootScope.files[index]);
                 else
-                    File.setCurrentFile($scope.files[0]);
+                    File.setCurrentFile($rootScope.files[0]);
                 $rootScope.$apply();
             });
 
@@ -35,13 +35,13 @@ splendid.factory('UI', function($rootScope, $q, $timeout, File){
                 name: 'switchFileLeft',
                 keys: ['ctrl+alt+left', 'command+option+left'],
             }, function(){
-                //console.log('movin\' on down!');
-                var index = $scope.files.indexOf($rootScope.currentFile) - 1;
+                console.log('movin\' on down!');
+                var index = File.get(File.getCurrentFile().name) - 1;
                 //console.log(index)
                 if(index > -1)
-                    $rootScope.currentFile = $scope.files[index];
+                    File.setCurrentFile($rootScope.files[index]);
                 else
-                    $rootScope.currentFile = $scope.files[$scope.files.length - 1];
+                    File.setCurrentFile($rootScope.files[$rootScope.files.length - 1]);
                 $rootScope.$apply();
             });
 
@@ -75,6 +75,20 @@ splendid.factory('UI', function($rootScope, $q, $timeout, File){
                 console.log('Closing that shit!')
                 File.close(File.getCurrentFile());
             });
+
+            // $rootScope.$watch('currentFile', function(val){
+            //     if(val) {
+            //         $scope.file = val;
+            //         $rootScope._editor.getSession().setMode("ace/mode/" + val.type);
+            //     }
+            // });
+
+            $rootScope.$on('file:current:changed', function(e, file){
+                console.log('gothcha let\'s set the mode!', file);
+                if(file) {
+                     _editorSession.setMode("ace/mode/" + file.type);
+                }
+            })
         },
         closeWindow: function(){
             window.chrome.app.window.current().close();
@@ -109,9 +123,9 @@ splendid.factory('UI', function($rootScope, $q, $timeout, File){
             });
         },
         closeFile: function(file){
-            var index = $scope.files.indexOf(file);
+            var f = File.get(file.name);
 
-            if($scope.files[index].name == file.name && $scope.files.length > index)
+            if(f.name == file.name && File.get().length > index)
                 File.setCurrentFile($scope.files[index - 1])
 
             File.close(file);

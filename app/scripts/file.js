@@ -14,7 +14,7 @@ splendid.factory('File', function($rootScope, $q){
         },
         setCurrentFile: function(file){
              _currentFile = file;
-            console.log(_currentFile);
+            $rootScope.$broadcast("file:current:changed", file);
             return true;
         },
         getCurrentFile: function(){

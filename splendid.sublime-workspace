@@ -415,15 +415,15 @@
 			"file": "app/scripts/app.js",
 			"settings":
 			{
-				"buffer_size": 4900,
+				"buffer_size": 738,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/lib/uikit/js/uikit.js",
+			"file": "bower.json",
 			"settings":
 			{
-				"buffer_size": 60900,
+				"buffer_size": 200,
 				"line_ending": "Unix"
 			}
 		},
@@ -431,7 +431,7 @@
 			"file": "app/index.html",
 			"settings":
 			{
-				"buffer_size": 3038,
+				"buffer_size": 2972,
 				"line_ending": "Unix"
 			}
 		},
@@ -439,7 +439,7 @@
 			"file": "app/scripts/ui.js",
 			"settings":
 			{
-				"buffer_size": 801,
+				"buffer_size": 4887,
 				"line_ending": "Unix"
 			}
 		},
@@ -455,7 +455,7 @@
 			"file": "app/scripts/file.js",
 			"settings":
 			{
-				"buffer_size": 2893,
+				"buffer_size": 3073,
 				"line_ending": "Unix"
 			}
 		},
@@ -471,9 +471,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 49.0,
+		"height": 159.0,
 		"selected_items":
 		[
+			[
+				"INSTA",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -555,6 +559,7 @@
 	},
 	"file_history":
 	[
+		"/Users/chrism/Projects/Splendid/.editorconfig",
 		"/Users/chrism/Projects/splendid/app/scripts/test",
 		"/Users/chrism/Projects/Splendid/app/scripts/test",
 		"/Users/chrism/Projects/Splendid/app/scripts/app.js",
@@ -681,12 +686,11 @@
 		"/Users/chrism/Projects/MovieShelf/elements/ms-movie.html",
 		"/Users/chrism/Projects/MovieShelf/elements/ms-movie-modal.html",
 		"/Users/chrism/Projects/MovieShelf/elements/ms-menu-item.html",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-icon-button.html",
-		"/Users/chrism/Projects/MovieShelf/elements/css/ms-menu-button.css"
+		"/Users/chrism/Projects/MovieShelf/elements/ms-icon-button.html"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 33.0
 	},
 	"find_in_files":
 	{
@@ -701,6 +705,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"UI",
 			"offcan",
 			"A",
 			"L",
@@ -827,8 +832,7 @@
 			"section",
 			"}\n",
 			".navbar ",
-			"title",
-			"svg"
+			"title"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -846,7 +850,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -855,15 +859,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4900,
+						"buffer_size": 738,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								622,
-								622
+								267,
+								267
 							]
 						],
 						"settings":
@@ -876,40 +880,42 @@
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1940.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/lib/uikit/js/uikit.js",
+					"file": "bower.json",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 60900,
+						"buffer_size": 200,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28355,
-								28361
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 23460.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -918,15 +924,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3038,
+						"buffer_size": 2972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								990,
-								990
+								1120,
+								1120
 							]
 						],
 						"settings":
@@ -938,9 +944,10 @@
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 711.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -949,26 +956,31 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 801,
+						"buffer_size": 4887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								603,
+								603
 							]
 						],
 						"settings":
 						{
+							"ensure_newline_at_eof_on_save": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true,
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2170.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -997,9 +1009,10 @@
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 466.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1008,30 +1021,31 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2893,
+						"buffer_size": 3073,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1971,
-								1971
+								137,
+								137
 							]
 						],
 						"settings":
 						{
 							"ensure_newline_at_eof_on_save": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true,
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1063,6 +1077,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1102,6 +1117,10 @@
 	"output.exec":
 	{
 		"height": 162.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
 	},
 	"output.run_mocha":
 	{

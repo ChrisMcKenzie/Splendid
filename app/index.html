@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body>
-        <nav class="uk-navbar uk-navbar-attached" ng-controller="TitleBarCtrl">
+    <body ng-controller="AppCtrl">
+        <nav class="uk-navbar uk-navbar-attached">
             <ul class="uk-navbar-nav">
                 <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-bars"></i></a></li>
             </ul>
@@ -24,7 +24,7 @@
             </div>
         </nav>
 
-        <div id="tools" class="uk-offcanvas" ng-controller="MenuCtrl">
+        <div id="tools" class="uk-offcanvas">
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
                     <li><a href="#" ng-click="ui.openFile()">Open...</a></li>
@@ -40,8 +40,8 @@
             </div>
         </div>
 
-        <div class="editor-container" ng-controller="EditorCtrl">
-            <pre id="editor" ui-ace="{ onLoad : aceLoaded }" ng-model="currentFile.file"></pre>
+        <div class="editor-container">
+            <pre id="editor" ui-ace="{ onLoad : aceLoaded }" ng-model="file.getCurrentFile().file"></pre>
         </div>
 
 
