@@ -2,7 +2,7 @@
 
 var splendid = angular.module('splendid', ['ui.ace']);
 
-splendid.run(function($rootScope, UI, File){
+splendid.run(function($rootScope, UI){
     UI.init();
     UI.setStatus('Welcome!');
 });

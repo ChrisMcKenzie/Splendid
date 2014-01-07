@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Splendid</title>
         <!-- build:css styles/app.css -->
-        <link rel="stylesheet" href="bower_components/uikit/dist/css/uikit.almost-flat.css">
+        <link rel="stylesheet" href="bower_components/uikit/dist/css/uikit.almost-flat.min.css"/>
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
@@ -31,7 +31,7 @@
                     <li><a href="#" ng-click="ui.saveFile(currentFile)">Save</a></li>
                     <li><a href="#">Settings</a></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-nav-header">Open Files</li>
+                    <li class="uk-nav-header">Open</li>
                     <li class="tab" ng-repeat="file in files" ng-class="{'uk-active': currentFile.name == file.name}">
                         <a href="#" class="tab-link" ng-click="ui.switchFile(file.name)">{{file.name}} </a>
                         <a href="" class="closable" ng-click="ui.closeFile(file)"></a>

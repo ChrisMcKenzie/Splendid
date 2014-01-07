@@ -1,20 +1,21 @@
+'use strict';
+
 splendid.factory('File', function($rootScope, $q){
     var _files = [];
     var _currentFile = {};
-    var _editor = $rootScope._editor;
 
     return {
         get: function(name){
-            if(!name) return _files;
+            if(!name) { return _files; }
             for(var file in _files){
-                if(_files[file].name == name){
+                if(_files[file].name === name){
                     return _files[file];
                 }
             }
         },
         setCurrentFile: function(file){
-             _currentFile = file;
-            $rootScope.$broadcast("file:current:changed", file);
+            _currentFile = file;
+            $rootScope.$broadcast('file:current:changed', file);
             return true;
         },
         getCurrentFile: function(){
@@ -26,7 +27,7 @@ splendid.factory('File', function($rootScope, $q){
         fileExists: function(file){
             for(var f in _files){
                 if(_files[f].name === file.name){
-                    return true
+                    return true;
                 }
             }
             return false;
@@ -44,9 +45,9 @@ splendid.factory('File', function($rootScope, $q){
                         deffered.reject(e);
                     };
 
-                    reader.onloadend = function(e) {
+                    reader.onloadend = function() {
                         //console.log(e.target.result);
-                        var f = { name: entry.name, entry: entry, file: reader.result, type: file.type != 'text/plain' ? file.type.split('/')[1] : 'text' };
+                        var f = { name: entry.name, entry: entry, file: reader.result, type: file.type !== 'text/plain' ? file.type.split('/')[1] : 'text' };
 
                         if(self.fileExists(f)) {
                             deffered.reject();
@@ -67,7 +68,7 @@ splendid.factory('File', function($rootScope, $q){
         close: function(file){
             for(var index in _files){
                 console.log(_files[index], file);
-                if(_files[index].name == file.name && _files.length > index) {
+                if(_files[index].name === file.name && _files.length > index) {
                     _currentFile = _files[index - 1];
                     _files.splice(index, 1);
                 }
@@ -77,8 +78,8 @@ splendid.factory('File', function($rootScope, $q){
             var deffered = $q.defer();
 
             f.entry.createWriter(function(writer) {
-                writer.onerror = function(e){deffered.reject(e)};
-                writer.onwrite = function(e){
+                writer.onerror = function(e){deffered.reject(e);};
+                writer.onwrite = function(){
                     console.log(arguments);
                     deffered.resolve(f);
                 };
@@ -90,9 +91,9 @@ splendid.factory('File', function($rootScope, $q){
                     writer.seek(0);
                     writer.write(blob);
                 });
-            }, function(e){deffered.reject(e)});
+            }, function(e){deffered.reject(e);});
 
             return deffered.promise;
         }
-    }
+    };
 });
