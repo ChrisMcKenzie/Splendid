@@ -12,6 +12,8 @@ Splendid is a text editor that is a fully pluggable and is built using web techn
 
 #To Install:
   1. Clone this repo `git clone https://github.com/ChrisMcKenzie/Splendid`
+  2. you will need bower to download the dependencies you can install by entering `npm install -g bower` in you terminal
+  3. run `bower install` in the root of the repo.
   2. Open Chrome and go to Settings -> Extensions 
   3. enable developer mode
   4. Click load unpacked extension and go to the cloned repo and open the `/app` folder.
