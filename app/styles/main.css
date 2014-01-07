@@ -29,7 +29,7 @@ html, body {
 .ace_editor {
     left:0;
     width:100%;
-    height: calc(100% - 82px);
+    height: calc(100% - 68px);
     border: none;
     border-radius: 0;
 }

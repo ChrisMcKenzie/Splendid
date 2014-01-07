@@ -4,12 +4,36 @@
 		"selected_items":
 		[
 			[
-				"cli",
-				"clickedOnMenu"
+				"op",
+				"openEntries"
+			],
+			[
+				"ng-",
+				"ng-controller	AngularJS"
 			],
 			[
 				"get",
-				"Workspace.getCurrentFile"
+				"File.getCurrentFile"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"current",
+				"currentFile"
+			],
+			[
+				"defe",
+				"deffered"
+			],
+			[
+				"cli",
+				"clickedOnMenu"
 			],
 			[
 				"pr",
@@ -46,10 +70,6 @@
 			[
 				"re",
 				"readFile"
-			],
-			[
-				"ng-",
-				"ng-controller	AngularJS"
 			],
 			[
 				"ng-re",
@@ -206,10 +226,6 @@
 			[
 				"height",
 				"height"
-			],
-			[
-				"min",
-				"min-height"
 			],
 			[
 				"menu",
@@ -399,13 +415,101 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 2826,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".tmp/styles/main.css",
+			"settings":
+			{
+				"buffer_size": 2268,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/main.js",
+			"settings":
+			{
+				"buffer_size": 3985,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/manifest.json",
+			"settings":
+			{
+				"buffer_size": 606,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/styles/main.scss",
+			"settings":
+			{
+				"buffer_size": 1999,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 8758,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/ui.js",
+			"settings":
+			{
+				"buffer_size": 5481,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/app.js",
+			"settings":
+			{
+				"buffer_size": 631,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/file.js",
+			"settings":
+			{
+				"buffer_size": 3084,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".jshintrc",
+			"settings":
+			{
+				"buffer_size": 584,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 49.0,
+		"height": 93.0,
 		"selected_items":
 		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"INSTA",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -440,10 +544,6 @@
 			],
 			[
 				"Package Control: ins",
-				"Package Control: Install Package"
-			],
-			[
-				"install ",
 				"Package Control: Install Package"
 			],
 			[
@@ -487,12 +587,21 @@
 	},
 	"file_history":
 	[
-		"/Users/chrism/Projects/omega-ui-edge/app/scripts/app.js",
+		"/Users/chrism/Projects/Splendid/bower.json",
+		"/Users/chrism/Projects/Splendid/app/index.html",
+		"/Users/chrism/Projects/Splendid/app/scripts/ui.js",
+		"/Users/chrism/Projects/Splendid/.gitignore",
+		"/Users/chrism/Projects/Splendid/app/styles/main.css",
+		"/Users/chrism/Projects/Splendid/app/scripts/file.js",
+		"/Users/chrism/Projects/Splendid/app/manifest.json",
 		"/Users/chrism/Projects/Splendid/app/scripts/app.js",
+		"/Users/chrism/Projects/Splendid/.editorconfig",
+		"/Users/chrism/Projects/splendid/app/scripts/test",
+		"/Users/chrism/Projects/Splendid/app/scripts/test",
+		"/Users/chrism/Projects/omega-ui-edge/app/scripts/app.js",
 		"/Users/chrism/Projects/Splendid/index.html",
 		"/Users/chrism/Projects/Splendid/manifest.json",
 		"/Users/chrism/Projects/Splendid/app/background.js",
-		"/Users/chrism/Projects/Splendid/app/index.html",
 		"/Users/chrism/Downloads/Code/Main_IC_Setting_Loader_v1.bas",
 		"/Users/chrism/Downloads/Code/Main_IC_v1.bas",
 		"/Users/chrism/Projects/CloudSchools/app/scripts/Home/Views/home.jade",
@@ -605,16 +714,7 @@
 		"/Users/chrism/Projects/MovieShelf-app/public/elements/ms-movie-grid.html",
 		"/Users/chrism/Projects/MovieShelf-app/package.json",
 		"/Users/chrism/Projects/MovieShelf-app/README.md",
-		"/Users/chrism/Projects/MovieShelf-app/api/models/Movie.js",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-app.html",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-movie-grid.html",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-movie.html",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-movie-modal.html",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-menu-item.html",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-icon-button.html",
-		"/Users/chrism/Projects/MovieShelf/elements/css/ms-menu-button.css",
-		"/Users/chrism/Projects/MovieShelf/elements/css/ms-app.css",
-		"/Users/chrism/Projects/MovieShelf/elements/ms-toolbar.html"
+		"/Users/chrism/Projects/MovieShelf-app/api/models/Movie.js"
 	],
 	"find":
 	{
@@ -633,6 +733,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"saveFile_",
+			"i",
+			"['items']",
+			"ifShowFrame_",
+			"windows_",
+			"entriesToOpen_",
+			"entriesToOpen",
+			"entries",
+			"val",
+			"$scope",
+			"UI",
+			"offcan",
+			"A",
+			"L",
+			"-",
+			"this._buildKeyHash",
+			"addCommand",
+			"command",
+			"ile",
 			"fileName",
 			"_editor",
 			"js",
@@ -741,26 +860,7 @@
 			"*",
 			"span",
 			"var",
-			"g-icon",
-			"g-icon-button",
-			"button",
-			"menu",
-			";\n",
-			"ms",
-			"\n				width: 95%;",
-			"section",
-			"}\n",
-			".navbar ",
-			"title",
-			"svg",
-			"images",
-			"tk",
-			"assets",
-			"../../../",
-			"255",
-			"node_modules/",
-			"../img",
-			"span3"
+			"g-icon"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -778,8 +878,331 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								247,
+								247
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": ".tmp/styles/main.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/scripts/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3985,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1816,
+								1816
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 749.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								391,
+								391
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/styles/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1350,
+								1350
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1063.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8758,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1400,
+								1400
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 121.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/scripts/ui.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4366,
+								4366
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2801.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/scripts/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 631,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								107
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/scripts/file.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3084,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2562,
+								2562
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": ".jshintrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 584,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								575,
+								575
+							]
+						],
+						"settings":
+						{
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -817,6 +1240,10 @@
 	"output.exec":
 	{
 		"height": 162.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
 	},
 	"output.run_mocha":
 	{
@@ -983,7 +1410,7 @@
 		[
 			[
 				"",
-				"~/Projects/splendid/splendid.sublime-workspace"
+				"~/Projects/Splendid/splendid.sublime-workspace"
 			]
 		],
 		"width": 380.0

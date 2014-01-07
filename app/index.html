@@ -4,54 +4,53 @@
         <meta charset="utf-8">
         <title>Splendid</title>
         <!-- build:css styles/app.css -->
-        <link rel="stylesheet" href="lib/uikit/css/uikit.css">
-        <link rel="stylesheet" href="lib/uikit/css/uikit.almost-flat.css">
+        <link rel="stylesheet" href="bower_components/uikit/dist/css/uikit.almost-flat.min.css"/>
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body>
-        <nav class="uk-navbar uk-navbar-attached" ng-controller="TitleBarCtrl">
+    <body ng-controller="AppCtrl">
+        <nav class="uk-navbar uk-navbar-attached">
             <ul class="uk-navbar-nav">
-                <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-reorder"></i></a></li>
+                <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-bars"></i></a></li>
             </ul>
             <a href="" class="uk-navbar-brand">Splendid</a>
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav">
                     <li><span class="uk-text-muted uk-animation-fade">{{status.message}}</span></li>
-                    <li><a ng-click="maximize()"><i class="uk-icon-resize-full"></i></a></li>
-                    <li><a ng-click="close()"><i class="uk-icon-remove"></i></a></li>
+                    <li><a ng-click="ui.minimizeWindow()"><i class="uk-icon-minus"></i></a></li>
+                    <li><a ng-click="ui.maximizeWindow()"><i class="uk-icon-arrows-alt"></i></a></li>
+                    <li><a ng-click="ui.closeWindow()"><i class="uk-icon-times"></i></a></li>
                 </ul>
             </div>
         </nav>
 
-        <div id="tools" class="uk-offcanvas" ng-controller="MenuCtrl">
+        <div id="tools" class="uk-offcanvas">
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
-                    <li><a href="#" ng-click="openFile()">Open...</a></li>
-                    <li><a href="#" ng-click="saveFile(currentFile)">Save</a></li>
+                    <li><a href="#" ng-click="ui.openFile()">Open...</a></li>
+                    <li><a href="#" ng-click="ui.saveFile(currentFile)">Save</a></li>
                     <li><a href="#">Settings</a></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-nav-header">Open Files</li>
+                    <li class="uk-nav-header">Open</li>
                     <li class="tab" ng-repeat="file in files" ng-class="{'uk-active': currentFile.name == file.name}">
-                        <a href="#" class="tab-link" ng-click="switchFile(file.name)">{{file.name}} </a>
-                        <a href="" class="closable" ng-click="closeFile(file)"></a>
+                        <a href="#" class="tab-link" ng-click="ui.switchFile(file.name)">{{file.name}} </a>
+                        <a href="" class="closable" ng-click="ui.closeFile(file)"></a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="editor-container" ng-controller="EditorCtrl">
-            <pre id="editor" ui-ace="{ onLoad : aceLoaded }" ng-model="file.file"></pre>
+        <div class="editor-container">
+            <pre id="editor" ui-ace="{ onLoad : aceLoaded }" ng-model="file.getCurrentFile().file"></pre>
         </div>
 
 
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/mousetrap/mousetrap.js"></script>
-        <script src="lib/uikit/js/uikit.js"></script>
+        <script src="bower_components/uikit/dist/js/uikit.js"></script>
         <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/file.js"></script>
         <script src="scripts/ui.js"></script>
