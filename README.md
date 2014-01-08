@@ -1,5 +1,4 @@
-# Splendid 
-A Splendid Chrome App For Code.
+![](https://raw.github.com/ChrisMcKenzie/Splendid/Development/docs/splendid_banner.png)
 
 #About Splendid:
 Splendid is a text editor that is a fully pluggable and is built using web technologies and runs on the chrome app platform. Splendid uses open source tools and technologies such as.
