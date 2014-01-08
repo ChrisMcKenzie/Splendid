@@ -22,5 +22,3 @@ Splendid is a text editor that is a fully pluggable and is built using web techn
   To get Started build Splendid you will need [Yeoman](http://yeoman.io) installed you can install this by entering `npm install -g yo`. Next fork the Splendid repo and clone, you can then install it in chrome by following the above steps.
   
   After the setup is pretty much done in order to debug run `grunt debug` in your terminal which will setup the livereload server and get things rolling. 
-  
->>>>>>> master
