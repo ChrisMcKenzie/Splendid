@@ -6,8 +6,9 @@ Splendid is a text editor that is a fully pluggable and is built using web techn
   * [AngularJS](http://angularjs.org/)
   * [UIKit](http://getuikit.com/)
 
-![](https://raw.github.com/ChrisMcKenzie/Splendid/Development/docs/Screen%20Shot%202014-01-06%20at%209.06.47%20PM.png)
-![](https://raw.github.com/ChrisMcKenzie/Splendid/Development/docs/Screen%20Shot%202014-01-06%20at%209.06.31%20PM.png)
+![](https://raw.github.com/ChrisMcKenzie/Splendid/Development/docs/images/main_screenshot.png)
+![](https://raw.github.com/ChrisMcKenzie/Splendid/Development/docs/images/sidebar_screenshot.png)
+![](https://raw.github.com/ChrisMcKenzie/Splendid/Development/docs/images/settings_screenshot.png)
 
 #To Install:
   1. Clone this repo `git clone https://github.com/ChrisMcKenzie/Splendid`
