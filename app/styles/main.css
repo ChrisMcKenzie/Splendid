@@ -7,6 +7,10 @@ html, body {
     font-weight: 200;
 }
 
+h1, h2, h3, h4, h5, .uk-panel-title {
+    font-weight: 100;
+}
+
 .uk-navbar {
     -webkit-app-region: drag;
     z-index: 1000;
@@ -47,4 +51,30 @@ html, body {
     float: right;
     font-family: "FontAwesome";
     text-align: center;
+}
+
+.big-panel {
+    width: 75%;
+    height: 100%;
+}
+
+.big-panel .uk-panel {
+    height: 100%;
+    margin: 0;
+}
+
+.big-panel .uk-panel > .uk-panel-title {
+    margin: 20px 15px;
+}
+
+.big-panel .uk-panel > .uk-grid {
+    height: calc(100% - 65px);
+}
+
+.setting-pane {
+    height: 100%;
+    padding: 20px 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
