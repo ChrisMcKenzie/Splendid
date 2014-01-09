@@ -29,7 +29,7 @@
                 <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
                     <li><a href="#" ng-click="ui.openFile()">Open...</a></li>
                     <li><a href="#" ng-click="ui.saveFile(currentFile)">Save</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="#settings" data-uk-offcanvas>Settings</a></li>
                     <li class="uk-nav-divider"></li>
                     <li class="uk-nav-header">Open</li>
                     <li class="tab" ng-repeat="file in files" ng-class="{'uk-active': currentFile.name == file.name}">
@@ -37,6 +37,28 @@
                         <a href="" class="closable" ng-click="ui.closeFile(file)"></a>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        <div id="settings" class="uk-offcanvas">
+            <div class="uk-offcanvas-bar big-panel">
+                <div class="uk-panel">
+                    <h2 class="uk-panel-title"><i class="uk-icon-gear"></i> Settings</h2>
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-2-6">
+
+                            <!-- This is the nav containing the toggling elements -->
+                            <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
+                                <li><a href="#" ng-click="">General</a></li>
+                                <li><a href="#" ng-click="">Addons</a></li>
+                                <li class="uk-nav-header">Addon Settings</li>
+                            </ul>
+                        </div>
+                        <div class="setting-pane uk-width-medium-4-6">
+                            <p> Placeholder </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
