@@ -1,0 +1,14 @@
+<nav class="uk-navbar uk-navbar-attached">
+    <ul class="uk-navbar-nav">
+        <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-bars"></i></a></li>
+    </ul>
+    <a href="" class="uk-navbar-brand">Splendid</a>
+    <div class="uk-navbar-flip">
+        <ul class="uk-navbar-nav">
+            <li><span class="uk-text-muted uk-animation-fade">{{status.message}}</span></li>
+            <li><a ng-click="api.minimizeWindow()"><i class="uk-icon-minus"></i></a></li>
+            <li><a ng-click="api.maximizeWindow()"><i class="uk-icon-arrows-alt"></i></a></li>
+            <li><a ng-click="api.closeWindow()"><i class="uk-icon-times"></i></a></li>
+        </ul>
+    </div>
+</nav>

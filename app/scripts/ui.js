@@ -95,22 +95,7 @@ splendid.factory('UI', function($rootScope, $q, $timeout, File){
                 }
             });
         },
-        closeWindow: function(){
-            window.chrome.app.window.current().close();
-        },
-        minimizeWindow: function(){
-            window.chrome.app.window.current().minimize();
-        },
-        maximizeWindow: function(){
-            var maximized = window.outerHeight === window.screen.availHeight &&
-                            window.outerWidth === window.screen.availWidth;
 
-            if (maximized) {
-                window.chrome.app.window.current().restore();
-            } else {
-                window.chrome.app.window.current().maximize();
-            }
-        },
         openFile: function(){
             File.open().then(function(file){
                 //$rootScope.currentFile = file;

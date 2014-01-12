@@ -30,7 +30,7 @@ Background.prototype.ifShowFrame = function() {
 Background.prototype.newWindow = function() {
     var options = {
         id: 'mainWindow',
-        frame: (this.ifShowFrame() ? 'chrome' : 'none'),
+        frame: 'none',
         minWidth: 800,
         minHeight: 600,
         width: 800,

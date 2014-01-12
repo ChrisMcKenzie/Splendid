@@ -9,27 +9,14 @@
         <!-- endbuild -->
     </head>
     <body ng-controller="AppCtrl">
-        <nav class="uk-navbar uk-navbar-attached">
-            <ul class="uk-navbar-nav">
-                <li><a href="#tools" data-uk-offcanvas><i class="uk-icon-bars"></i></a></li>
-            </ul>
-            <a href="" class="uk-navbar-brand">Splendid</a>
-            <div class="uk-navbar-flip">
-                <ul class="uk-navbar-nav">
-                    <li><span class="uk-text-muted uk-animation-fade">{{status.message}}</span></li>
-                    <li><a ng-click="ui.minimizeWindow()"><i class="uk-icon-minus"></i></a></li>
-                    <li><a ng-click="ui.maximizeWindow()"><i class="uk-icon-arrows-alt"></i></a></li>
-                    <li><a ng-click="ui.closeWindow()"><i class="uk-icon-times"></i></a></li>
-                </ul>
-            </div>
-        </nav>
+        <s-header></s-header>
 
         <div id="tools" class="uk-offcanvas">
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
                     <li><a href="#" ng-click="ui.openFile()">Open...</a></li>
                     <li><a href="#" ng-click="ui.saveFile(currentFile)">Save</a></li>
-                    <li><a href="#settings" data-uk-offcanvas>Settings</a></li>
+                    <li><a ng-click="show()">Settings</a></li>
                     <li class="uk-nav-divider"></li>
                     <li class="uk-nav-header">Open</li>
                     <li class="tab" ng-repeat="file in files" ng-class="{'uk-active': currentFile.name == file.name}">
@@ -40,29 +27,69 @@
             </div>
         </div>
 
-        <div id="settings" class="uk-offcanvas">
-            <div class="uk-offcanvas-bar big-panel">
-                <div class="uk-panel">
-                    <div class="uk-panel-title">
-                        <i class="uk-icon-gear"></i> Settings
-                    </div>
-                    <div class="uk-grid">
-                        <div class="uk-width-medium-2-6">
-
-                            <!-- This is the nav containing the toggling elements -->
-                            <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
-                                <li><a href="#" ng-click="">General</a></li>
-                                <li><a href="#" ng-click="">Addons</a></li>
-                                <li class="uk-nav-header">Addon Settings</li>
-                            </ul>
+        <s-settings>
+            <s-settings-pane title="General">
+                <p> This is an example settings panel </p>
+                <div class="uk-form-horizontal">
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="form-h-it">Button Input</label>
+                        <div class="uk-form-controls uk-float-right">
+                            <div class="switch">
+                                <input type="checkbox" name="switch" class="switch-checkbox" id="myswitch" checked>
+                                <label class="switch-label" for="myswitch">
+                                    <div class="switch-inner">
+                                        <div class="switch-active"><div class="switch-switch">ON</div></div>
+                                        <div class="switch-inactive"><div class="switch-switch">OFF</div></div>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
-                        <div class="setting-pane uk-width-medium-4-6">
-                            <p> Placeholder </p>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="form-h-it">Button Input</label>
+                        <div class="uk-form-controls uk-float-right">
+                            <div class="switch">
+                                <input type="checkbox" name="switch" class="switch-checkbox" id="myswitch2" checked>
+                                <label class="switch-label" for="myswitch2">
+                                    <div class="switch-inner">
+                                        <div class="switch-active"><div class="switch-switch">ON</div></div>
+                                        <div class="switch-inactive"><div class="switch-switch">OFF</div></div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="form-h-it">Text Input</label>
+                        <div class="uk-form-controls">
+                                <input type="text" name="switch" class="uk-form-width-large uk-float-right"/>
+                        </div>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="form-h-it">Select Input</label>
+                        <div class="uk-form-controls">
+                            <div class="select-style">
+                              <select>
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="form-h-it">Text Input</label>
+                        <div class="uk-form-controls">
+                                <input type="text" name="switch" class="uk-form-width-large uk-float-right"/>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </s-settings-pane>
+            <s-settings-pane title="Plugins">
+                <p>PlaceHolder</p>
+            </s-settings-pane>
+        </s-settings>
 
         <div class="editor-container">
             <pre id="editor" ui-ace="{ onLoad : aceLoaded }" ng-model="file.getCurrentFile().file"></pre>
@@ -75,8 +102,15 @@
         <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
+
+        <script src="scripts/modules/config.js"></script>
+        <script src="scripts/modules/settings.js"></script>
+        <script src="scripts/modules/header.js"></script>
+
+
         <script src="scripts/app.js"></script>
         <script src="scripts/file.js"></script>
         <script src="scripts/ui.js"></script>
+
     </body>
 </html>
