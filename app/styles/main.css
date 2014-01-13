@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, .uk-panel-title {
     font-weight: 200;
 }
 
+.uk-navbar .uk-navbar-nav {
+    -webkit-app-region: no-drag;
+}
+
 .uk-navbar-nav li span {
     height: 41px;
     line-height: 40px;
