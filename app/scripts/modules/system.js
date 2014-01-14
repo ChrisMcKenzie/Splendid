@@ -1,6 +1,6 @@
 'use strict';
 
-splendid.factory('UI', function($rootScope, $q, $timeout, File){
+angular.module('splendid.system', ['splendid.filesystem']).factory('UI', function($rootScope, $q, $timeout, File){
 	var _status = {};
     var _editorEl = angular.element('#editor')[0];
 	var _editor = window.ace.edit(_editorEl);

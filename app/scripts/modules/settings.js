@@ -1,14 +1,29 @@
 'use strict';
+/**
+ * @fileoverview API and Directive Settings Module.
+ * @author chris@kbsurfer.com (Chris McKenzie)
+ */
 
+/** @constructor */
 angular.module('splendid.settings', ['splendid.config']).factory('Settings', function($rootScope){
 	return {
+        /**
+         * Fires the show event and shows the main panel.
+         */
 		show: function(){
             //console.log('showing off...');
 			$rootScope.$broadcast('settings:dialog:show');
 		},
+        /**
+         * Fires the hide event and hides the main panel.
+         */
         hide: function(){
             $rootScope.$broadcast('settings:dialog:hide');
         },
+        /**
+         * Fires the addPane event and adds a pane to the dialog.
+         * @param {SettingPane} the pane object to be added
+         */
         addPane: function(pane){
             $rootScope.$broadcast('settings:dialog:addPane', pane);
         }
@@ -40,6 +55,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
         console.log(bar);
         bar.addClass("uk-offcanvas-bar-show").width();
 
+        //Listen and close onSwipe or outClick.
         element.off(".ukoffcanvas").on("click.ukoffcanvas swipeRight.ukoffcanvas swipeLeft.ukoffcanvas", function(e) {
 
             var target = $(e.target);
@@ -54,6 +70,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
             hide(element);
         });
 
+        // Listen and close onEscape.
         $doc.on('keydown.offcanvas', function(e) {
             if (e.keyCode === 27) { // ESC
                 hide(element);
@@ -61,6 +78,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
         });
     };
 
+    //Hide Settings Panel
     var hide = function(element){
         var doc   = $("html"),
             panel = $(".uk-offcanvas.uk-active"),
@@ -99,53 +117,58 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
         scope: {},
 		templateUrl: BASE_TEMPLATE_PATH + 'settings.html',
         controller: function($scope){
+            //panes displayed on the panel
             var panes = $scope.panes = [];
 
+            /**
+             * Set given pane as selected
+             * @param {SettingsPane} the pane to be selected.
+             */
             $scope.select = function(pane) {
-              angular.forEach(panes, function(pane) {
-                pane.selected = false;
-              });
-              pane.selected = true;
+                // deselect all panes
+                angular.forEach(panes, function(pane) {
+                    pane.selected = false;
+                });
+                pane.selected = true;
             };
 
+            /**
+             * Add pane to @code { $scope.panes }
+             * @param {SettingsPane} the pane to be added.
+             */
             this.addPane = function(pane) {
               if (panes.length == 0) {
                 $scope.select(pane);
               }
               panes.push(pane);
+              $scope.$emit('settings:dialog:paneAdded');
             };
 
+            //Listener for adding panes.
             $scope.$on('settings:dialog:addPane', function(data){
                 this.addPane(data);
             });
         },
         link: function($scope, element) {
+            //Listen for show
             $scope.$on('settings:dialog:show', function(){
                 show(element);
             });
-
+            //Listener for hide
             $scope.$on('settings:dialog:hide', function(){
                 hide(element);
             });
         }
 	};
 }]).directive('sSettingsPane', ['Settings', function(Settings){
-    // Runs during compile
     return {
-        // name: '',
-        // priority: 1,
-        // terminal: true,
         scope: {
             title: '@'
-        }, // {} = isolate, true = child, false/undefined = no change
-        // cont­rol­ler: function($scope, $element, $attrs, $transclue) {},
-        require: '^sSettings', // Array = multiple requires, ? = optional, ^ = check parent elements
-        restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+        },
+        require: '^sSettings',
+        restrict: 'E',
         template: '<div class="settings-pane" ng-cloak ng-show="selected" ng-transclude></div>',
-        // templateUrl: '',
-        // replace: true,
         transclude: true,
-        // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         link: function($scope, iElm, iAttrs, sSettingsCtrl) {
             sSettingsCtrl.addPane($scope);
         }

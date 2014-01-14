@@ -159,6 +159,10 @@ h1, h2, h3, h4, h5, .uk-panel-title {
     color: #ccc;
 }
 
+
+/**
+ * ^input
+ */
 input {
     -webkit-appearance: none;
     background: #404040;
@@ -173,6 +177,10 @@ input {
     outline: #e78b8b;
 }
 
+
+/**
+ * ^switch
+ */
 .switch {
     position: relative; width: 100px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
