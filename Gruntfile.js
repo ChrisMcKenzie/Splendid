@@ -58,7 +58,7 @@ module.exports = function (grunt) {
             test: {
                 options: {
                     base: [
-                        'test',
+                        './test',
                         '<%= yeoman.app %>'
                     ]
                 }
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
+                cssDir: '<%= yeoman.app %>/styles',
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
@@ -210,7 +210,9 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         'images/{,*/}*.{webp,gif}',
                         '_locales/{,*/}*.json',
-                        'styles/fonts/{,*/}*.*'
+                        'styles/{,*/}*.*',
+                        'scripts/{,*/}*.js',
+                        'bower_components/{,*/}*.*'
                     ]
                 }]
             }
@@ -262,6 +264,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'jshint',
+            'compass',
             'connect:livereload',
             'watch'
         ]);

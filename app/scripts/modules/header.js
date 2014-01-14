@@ -45,7 +45,7 @@ angular.module('splendid.header', ['splendid.config']).factory('Header',function
                             window.outerWidth === window.screen.availWidth;
         }
 	};
-}).directive('sHeader', ['BASE_TEMPLATE_PATH', 'Header', function(BASE_TEMPLATE_PATH, Header){
+}).directive('sHeader', ['BASE_TEMPLATE_PATH', 'Header', function(BASE_TEMPLATE_PATH){
     return {
         restrict: 'E', //Element only
         scope: {}, //Private Scope.

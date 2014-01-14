@@ -22,7 +22,7 @@ var splendid = angular.module('splendid', [
 ]);
 
 //Basic initialization
-splendid.run(function($rootScope, UI, Settings){
+splendid.run(function($rootScope, UI){
     UI.init();
     UI.setStatus('Welcome!');
 });
