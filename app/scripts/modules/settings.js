@@ -8,6 +8,12 @@
 angular.module('splendid.settings', ['splendid.config']).factory('Settings', function($rootScope){
 	return {
         /**
+         * Settings Type: Select
+         */
+        get SELECT() {
+            return '<select></select>';
+        },
+        /**
          * Fires the show event and shows the main panel.
          */
 		show: function(){
@@ -26,17 +32,35 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
          */
         addPane: function(pane){
             $rootScope.$broadcast('settings:dialog:addPane', pane);
+        },
+        /**
+         * Register a new Setting Section or new setting element/group
+         * @param {string} title of the section.
+         */
+        register: function() {
+            //TODO: storage system.
+            var args = arguments;
+            console.log(args);
+
+            if(args.length <= 1 /** TODO: Or section doesn't exist */){
+                //Section registration
+                //TODO: register a section a create DOM element.
+            } else if(args.length > 1 && typeof args[1] === 'string'){
+                // Section group registration
+            } else if(args.length > 1 && Object.prototype.toString.call( args[1] ) === '[object Array]') {
+                // Section settings registration
+            }
         }
 	};
-}).directive('sSettings', ['BASE_TEMPLATE_PATH', function(BASE_TEMPLATE_PATH){
+}).directive('sSettings', ['BASE_TEMPLATE_PATH', 'Editor', function(BASE_TEMPLATE_PATH, Editor){
     var scrollpos;
 
     // Show the Settings Panel
     var show = function(element){
-        console.log('hello world');
+        //console.log('hello world');
         element = element.children(':first');
         //if (!element.length) return;
-        console.log(element);
+        //console.log(element);
         var $win      = $(window),
             $doc      = $(document),
             doc       = $('html'),
@@ -52,7 +76,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
         doc.css({'width': window.innerWidth, 'height': window.innerHeight}).addClass('uk-offcanvas-page');
         doc.css('margin-left', ((bar.outerWidth() - scrollbar) * dir)).width(); // .width() - force redraw
 
-        console.log(bar);
+        //console.log(bar);
         bar.addClass('uk-offcanvas-bar-show').width();
 
         //Listen and close onSwipe or outClick.
@@ -108,6 +132,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
 
         panel.off('.ukoffcanvas');
         doc.off('.ukoffcanvas');
+        Editor.focus();
     };
 
 

@@ -78,14 +78,15 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 
 /* line 75, main.scss */
 .ace_editor {
+  position: absolute;
   left: 0;
   width: 100%;
-  height: calc(100% - 68px);
+  height: calc(100% - 40px);
   border: none;
   border-radius: 0;
 }
 
-/* line 83, main.scss */
+/* line 84, main.scss */
 .closable {
   position: relative;
   float: right;
@@ -94,7 +95,7 @@ h1, h2, h3, h4, h5, .uk-panel-title {
   width: 20px;
 }
 
-/* line 91, main.scss */
+/* line 92, main.scss */
 .closable:after {
   content: "\f00d";
   float: right;
@@ -105,29 +106,29 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 /*------------------------------------*\
     @PANEL
 \*------------------------------------*/
-/* line 101, main.scss */
+/* line 102, main.scss */
 .big-panel {
   width: 66.66%;
   height: 100%;
 }
 
-/* line 106, main.scss */
+/* line 107, main.scss */
 .big-panel .uk-panel {
   height: 100%;
   margin: 0;
 }
 
-/* line 111, main.scss */
+/* line 112, main.scss */
 .big-panel .uk-panel > .uk-panel-title {
   margin: 20px 15px;
 }
 
-/* line 115, main.scss */
+/* line 116, main.scss */
 .big-panel .uk-panel > .uk-grid {
   height: calc(100% - 65px);
 }
 
-/* line 119, main.scss */
+/* line 120, main.scss */
 .settings-content {
   height: 100%;
   padding-left: 0px;
@@ -143,7 +144,7 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 /**
  * ^select
  */
-/* line 136, main.scss */
+/* line 137, main.scss */
 .select-style {
   border-bottom: 1px solid #e78b8b;
   border-radius: 0;
@@ -151,7 +152,7 @@ h1, h2, h3, h4, h5, .uk-panel-title {
   background: #404040 url("images/triangle.png") no-repeat 100% 100%;
 }
 
-/* line 144, main.scss */
+/* line 145, main.scss */
 .select-style select {
   color: #777;
   font-size: 18px;
@@ -165,7 +166,7 @@ h1, h2, h3, h4, h5, .uk-panel-title {
   -webkit-appearance: none;
 }
 
-/* line 157, main.scss */
+/* line 158, main.scss */
 .select-style select:focus {
   outline: none;
   color: #ccc;
@@ -174,7 +175,7 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 /**
  * ^input
  */
-/* line 166, main.scss */
+/* line 167, main.scss */
 input {
   -webkit-appearance: none;
   background: #404040;
@@ -192,7 +193,7 @@ input {
 /**
  * ^switch
  */
-/* line 184, main.scss */
+/* line 185, main.scss */
 .switch {
   position: relative;
   width: 100px;
@@ -201,12 +202,12 @@ input {
   -ms-user-select: none;
 }
 
-/* line 189, main.scss */
+/* line 190, main.scss */
 .switch-checkbox {
   display: none;
 }
 
-/* line 193, main.scss */
+/* line 194, main.scss */
 .switch-label {
   display: block;
   overflow: hidden;
@@ -215,7 +216,7 @@ input {
   border-radius: 0px;
 }
 
-/* line 198, main.scss */
+/* line 199, main.scss */
 .switch-inner {
   width: 200%;
   margin-left: -100%;
@@ -225,7 +226,7 @@ input {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 204, main.scss */
+/* line 205, main.scss */
 .switch-inner > div {
   float: left;
   position: relative;
@@ -240,14 +241,14 @@ input {
   box-sizing: border-box;
 }
 
-/* line 210, main.scss */
+/* line 211, main.scss */
 .switch-inner .switch-active {
   padding-left: 15px;
   background-color: #777;
   color: #FFFFFF;
 }
 
-/* line 215, main.scss */
+/* line 216, main.scss */
 .switch-inner .switch-inactive {
   padding-right: 15px;
   background-color: #777;
@@ -255,7 +256,7 @@ input {
   text-align: right;
 }
 
-/* line 221, main.scss */
+/* line 222, main.scss */
 .switch-switch {
   width: 40px;
   margin: 0px;
@@ -267,19 +268,19 @@ input {
   bottom: 0;
 }
 
-/* line 226, main.scss */
+/* line 227, main.scss */
 .switch-active .switch-switch {
   background: #e78b8b;
   left: 0;
 }
 
-/* line 229, main.scss */
+/* line 230, main.scss */
 .switch-inactive .switch-switch {
   background: #A1A1A1;
   right: 0;
 }
 
-/* line 233, main.scss */
+/* line 234, main.scss */
 .switch-active .switch-switch:before {
   content: " ";
   position: absolute;
@@ -290,7 +291,7 @@ input {
   border-width: 15px 10px;
 }
 
-/* line 239, main.scss */
+/* line 240, main.scss */
 .switch-inactive .switch-switch:before {
   content: " ";
   position: absolute;
@@ -301,7 +302,7 @@ input {
   border-width: 15px 10px;
 }
 
-/* line 245, main.scss */
+/* line 246, main.scss */
 .switch-checkbox:checked + .switch-label .switch-inner {
   margin-left: 0;
 }

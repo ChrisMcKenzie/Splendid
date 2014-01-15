@@ -3,6 +3,7 @@
  * @fileoverview App Initialization
  * @author chris@kbsurfer.com (Chris McKenzie)
  */
+/*jshint unused:false */
 
 // Require.js Setup
 require.config({
@@ -13,9 +14,9 @@ require.config({
 //Define the app.
 /** @constructor */
 var splendid = angular.module('splendid', [
-    'ui.ace',
     'splendid.config',
     'splendid.system',
+    'splendid.editor',
     'splendid.filesystem',
     'splendid.settings',
     'splendid.header'
@@ -29,8 +30,7 @@ splendid.run(function($rootScope, UI){
 
 
 //App Controller
-splendid.controller('AppCtrl', function($rootScope, $scope, File, UI, Settings){
-
+splendid.controller('AppCtrl', function($rootScope, $scope, File, UI, Settings, Editor){
     //Place System Services on the rootScope.
     $rootScope.ui = UI;
     $rootScope.file = File;
@@ -42,5 +42,9 @@ splendid.controller('AppCtrl', function($rootScope, $scope, File, UI, Settings){
     $rootScope.settings = Settings;
 
     $rootScope.show = Settings.show;
+    $rootScope.Editor = Editor;
+    console.log(Editor);
+    $scope.themes = Editor.themes;
+    $scope.theme = Editor.theme;
 });
 

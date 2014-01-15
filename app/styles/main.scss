@@ -73,9 +73,10 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 }
 
 .ace_editor {
+    position: absolute;
     left:0;
     width:100%;
-    height: calc(100% - 68px);
+    height: calc(100% - 40px);
     border: none;
     border-radius: 0;
 }
