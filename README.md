@@ -1,7 +1,7 @@
 ![](https://raw.github.com/ChrisMcKenzie/Splendid/master/docs/Images/splendid_banner.png)
 
 #About Splendid:
-Splendid is a text editor that is a fully pluggable and is built using web technologies and runs on the chrome app platform. Splendid uses open source tools and technologies such as.
+Splendid is a text editor made to stay out of the way and let you code built using web technologies and runs on the chrome app platform. Splendid uses open source tools and technologies such as.
   * [Yeoman](http://yeoman.io)
   * [AngularJS](http://angularjs.org/)
   * [UIKit](http://getuikit.com/)
