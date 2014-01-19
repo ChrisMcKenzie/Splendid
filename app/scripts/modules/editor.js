@@ -37,6 +37,12 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
 
     // Settings registration;
     Settings.register('General', {
+        'editor.wordWrap': {
+            id: 'editor.wordWrap',
+            title: 'Word Wrap',
+            type: Settings.SWITCH,
+            value: false
+        },
         'editor.theme': {
             id: 'editor.theme',
             title: 'Theme',
@@ -49,7 +55,7 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
             title: 'Show Gutter',
             type: 1,
             value: true
-        }
+        },
     });
 
     return Editor;
@@ -62,6 +68,7 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
             //console.log(Editor.theme);
             $scope.theme = Settings.categorySettings['general']['editor.theme'];
             $scope.showGutter = Settings.categorySettings['general']['editor.showGutter'];
+            $scope.wordWrap = Settings.categorySettings['general']['editor.wordWrap'];
             $scope.editor = window.ace.edit(element.children('.editor')[0]);
             $scope.session = $scope.editor.getSession();
 
@@ -84,6 +91,11 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
             $scope.$watch('showGutter', function(showGutter){
                 //console.log(showGutter);
                 $scope.editor.renderer.setShowGutter(showGutter.value);
+            }, true);
+
+            $scope.$watch('wordWrap', function(wordWrap){
+                //console.log(wordWrap);
+                $scope.session.setUseWrapMode(wordWrap.value);
             }, true);
         }
     };

@@ -194,14 +194,15 @@ input {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  float: right;
 }
 
-/* line 184, main.scss */
+/* line 185, main.scss */
 .switch-checkbox {
   display: none;
 }
 
-/* line 188, main.scss */
+/* line 189, main.scss */
 .switch-label {
   display: block;
   overflow: hidden;
@@ -210,7 +211,7 @@ input {
   border-radius: 0px;
 }
 
-/* line 193, main.scss */
+/* line 194, main.scss */
 .switch-inner {
   width: 200%;
   margin-left: -100%;
@@ -220,7 +221,7 @@ input {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 199, main.scss */
+/* line 200, main.scss */
 .switch-inner > div {
   float: left;
   position: relative;
@@ -235,14 +236,14 @@ input {
   box-sizing: border-box;
 }
 
-/* line 205, main.scss */
+/* line 206, main.scss */
 .switch-inner .switch-active {
   padding-left: 15px;
   background-color: #777;
   color: #FFFFFF;
 }
 
-/* line 210, main.scss */
+/* line 211, main.scss */
 .switch-inner .switch-inactive {
   padding-right: 15px;
   background-color: #777;
@@ -250,7 +251,7 @@ input {
   text-align: right;
 }
 
-/* line 216, main.scss */
+/* line 217, main.scss */
 .switch-switch {
   width: 40px;
   margin: 0px;
@@ -262,19 +263,19 @@ input {
   bottom: 0;
 }
 
-/* line 221, main.scss */
+/* line 222, main.scss */
 .switch-active .switch-switch {
   background: #e78b8b;
   left: 0;
 }
 
-/* line 224, main.scss */
+/* line 225, main.scss */
 .switch-inactive .switch-switch {
   background: #A1A1A1;
   right: 0;
 }
 
-/* line 228, main.scss */
+/* line 229, main.scss */
 .switch-active .switch-switch:before {
   content: " ";
   position: absolute;
@@ -285,7 +286,7 @@ input {
   border-width: 15px 10px;
 }
 
-/* line 234, main.scss */
+/* line 235, main.scss */
 .switch-inactive .switch-switch:before {
   content: " ";
   position: absolute;
@@ -296,7 +297,7 @@ input {
   border-width: 15px 10px;
 }
 
-/* line 240, main.scss */
+/* line 241, main.scss */
 .switch-checkbox:checked + .switch-label .switch-inner {
   margin-left: 0;
 }

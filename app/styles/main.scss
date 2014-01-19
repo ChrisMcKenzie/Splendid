@@ -179,6 +179,7 @@ input {
 .switch {
     position: relative; width: 100px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    float: right;
 }
 
 .switch-checkbox {
