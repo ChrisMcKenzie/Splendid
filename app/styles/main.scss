@@ -134,28 +134,22 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 /**
  * ^select
  */
-.select-style {
+select {
+    border: none;
     border-bottom: 1px solid #e78b8b;
     border-radius: 0;
     overflow: hidden;
     background: #404040 url("images/triangle.png") no-repeat 100% 100%;
-
-}
-
-.select-style select {
     color: #777;
     font-size: 18px;
     font-weight: 200;
     padding: 5px 10px;
-    width: 130%;
-    border: none;
+    width: 100%;
     box-shadow: none;
-    background: transparent;
-    background-image: none;
     -webkit-appearance: none;
 }
 
-.select-style select:focus {
+select:focus {
     outline: none;
     color: #ccc;
 }

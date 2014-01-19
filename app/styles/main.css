@@ -145,29 +145,23 @@ h1, h2, h3, h4, h5, .uk-panel-title {
  * ^select
  */
 /* line 137, main.scss */
-.select-style {
+select {
+  border: none;
   border-bottom: 1px solid #e78b8b;
   border-radius: 0;
   overflow: hidden;
   background: #404040 url("images/triangle.png") no-repeat 100% 100%;
-}
-
-/* line 145, main.scss */
-.select-style select {
   color: #777;
   font-size: 18px;
   font-weight: 200;
   padding: 5px 10px;
-  width: 130%;
-  border: none;
+  width: 100%;
   box-shadow: none;
-  background: transparent;
-  background-image: none;
   -webkit-appearance: none;
 }
 
-/* line 158, main.scss */
-.select-style select:focus {
+/* line 152, main.scss */
+select:focus {
   outline: none;
   color: #ccc;
 }
@@ -175,7 +169,7 @@ h1, h2, h3, h4, h5, .uk-panel-title {
 /**
  * ^input
  */
-/* line 167, main.scss */
+/* line 161, main.scss */
 input {
   -webkit-appearance: none;
   background: #404040;
@@ -193,7 +187,7 @@ input {
 /**
  * ^switch
  */
-/* line 185, main.scss */
+/* line 179, main.scss */
 .switch {
   position: relative;
   width: 100px;
@@ -202,12 +196,12 @@ input {
   -ms-user-select: none;
 }
 
-/* line 190, main.scss */
+/* line 184, main.scss */
 .switch-checkbox {
   display: none;
 }
 
-/* line 194, main.scss */
+/* line 188, main.scss */
 .switch-label {
   display: block;
   overflow: hidden;
@@ -216,7 +210,7 @@ input {
   border-radius: 0px;
 }
 
-/* line 199, main.scss */
+/* line 193, main.scss */
 .switch-inner {
   width: 200%;
   margin-left: -100%;
@@ -226,7 +220,7 @@ input {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 205, main.scss */
+/* line 199, main.scss */
 .switch-inner > div {
   float: left;
   position: relative;
@@ -241,14 +235,14 @@ input {
   box-sizing: border-box;
 }
 
-/* line 211, main.scss */
+/* line 205, main.scss */
 .switch-inner .switch-active {
   padding-left: 15px;
   background-color: #777;
   color: #FFFFFF;
 }
 
-/* line 216, main.scss */
+/* line 210, main.scss */
 .switch-inner .switch-inactive {
   padding-right: 15px;
   background-color: #777;
@@ -256,7 +250,7 @@ input {
   text-align: right;
 }
 
-/* line 222, main.scss */
+/* line 216, main.scss */
 .switch-switch {
   width: 40px;
   margin: 0px;
@@ -268,19 +262,19 @@ input {
   bottom: 0;
 }
 
-/* line 227, main.scss */
+/* line 221, main.scss */
 .switch-active .switch-switch {
   background: #e78b8b;
   left: 0;
 }
 
-/* line 230, main.scss */
+/* line 224, main.scss */
 .switch-inactive .switch-switch {
   background: #A1A1A1;
   right: 0;
 }
 
-/* line 234, main.scss */
+/* line 228, main.scss */
 .switch-active .switch-switch:before {
   content: " ";
   position: absolute;
@@ -291,7 +285,7 @@ input {
   border-width: 15px 10px;
 }
 
-/* line 240, main.scss */
+/* line 234, main.scss */
 .switch-inactive .switch-switch:before {
   content: " ";
   position: absolute;
@@ -302,7 +296,7 @@ input {
   border-width: 15px 10px;
 }
 
-/* line 246, main.scss */
+/* line 240, main.scss */
 .switch-checkbox:checked + .switch-label .switch-inner {
   margin-left: 0;
 }

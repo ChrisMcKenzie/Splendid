@@ -5,13 +5,17 @@
  */
 
 /** @constructor */
-angular.module('splendid.settings', ['splendid.config']).factory('Settings', function($rootScope){
+angular.module('splendid.settings', ['splendid.config']).factory('Settings', function($rootScope, $compile, $q){
+    var _element = angular.element('s-settings'); // categories
+
 	return {
+        categories: {},
+        categorySettings: {},
         /**
-         * Settings Type: Select
+         * Initiate api for settings panel.
          */
-        get SELECT() {
-            return '<select></select>';
+        init: function(element){
+            _element = element;
         },
         /**
          * Fires the show event and shows the main panel.
@@ -27,32 +31,82 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
             $rootScope.$broadcast('settings:dialog:hide');
         },
         /**
-         * Fires the addPane event and adds a pane to the dialog.
-         * @param {SettingPane} the pane object to be added
+         * Change setting value.
+         * @param {string} the setting id eg: editor.theme
+         * @param {*} the value to be set.
+         * @return {promise}
          */
-        addPane: function(pane){
-            $rootScope.$broadcast('settings:dialog:addPane', pane);
+        set: function(setting, value){
+            var deffered = $q.defer(),
+                s = {};
+
+            s[setting] = value;
+
+            window.chrome.storage.sync.set(s, function(){
+                deffered.resolve(value);
+            });
+
+            return deffered.promise;
+        },
+        /**
+         * Get setting value
+         * @param {string} setting id
+         * @return {promise}
+         */
+        get: function(setting){
+            var deffered = $q.defer();
+
+            window.chrome.storage.sync.get(setting, function(data){
+                if(data) {
+                    deffered.resolve(data[setting]);
+                } else {
+                    deffered.reject();
+                }
+            });
+
+            return deffered.promise;
         },
         /**
          * Register a new Setting Section or new setting element/group
          * @param {string} title of the section.
          */
-        register: function() {
+        register: function(category, settings) {
+            var self = this;
             //TODO: storage system.
-            var args = arguments;
-            console.log(args);
+            //Section registration
+            //TODO: register a section a create DOM element.
+            // Create Settings Pane if doesn't exist.
+            var lowered = angular.lowercase(category);
+            if(!this.categories[category]) {
+                // Category doesn't exist
+                this.categories[category] = {
+                    id: lowered,
+                    title: category
+                };
 
-            if(args.length <= 1 /** TODO: Or section doesn't exist */){
-                //Section registration
-                //TODO: register a section a create DOM element.
-            } else if(args.length > 1 && typeof args[1] === 'string'){
-                // Section group registration
-            } else if(args.length > 1 && Object.prototype.toString.call( args[1] ) === '[object Array]') {
-                // Section settings registration
+                this.categorySettings[lowered] = {};
             }
-        }
+
+            if(settings){
+                //console.log(settings);
+                angular.forEach(settings, function(setting, key){
+                    self.get(setting.id).then(function(data){
+                        console.log('Settings exists loading it into memory');
+                        setting.value = data;
+                    }, function(){
+                        console.log('Settings could not be found loading default');
+                        //setting.value = setting.value;
+                        self.set(setting.id, setting.value);
+                    });
+                });
+
+                this.categorySettings[lowered] = settings;
+            }
+        },
+        SELECT: 0,
+        SWITCH: 1
 	};
-}).directive('sSettings', ['BASE_TEMPLATE_PATH', 'Editor', function(BASE_TEMPLATE_PATH, Editor){
+}).directive('sSettings', ['BASE_TEMPLATE_PATH', 'Editor', 'Settings', function(BASE_TEMPLATE_PATH, Editor, Settings){
     var scrollpos;
 
     // Show the Settings Panel
@@ -138,43 +192,34 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
 
 	return {
 		restrict: 'E',
-        transclude: true,
         scope: {},
 		templateUrl: BASE_TEMPLATE_PATH + 'settings.html',
         controller: function($scope){
-            //panes displayed on the panel
-            var panes = $scope.panes = [];
+            $scope.categories = Settings.categories;
+            $scope.categorySettings = Settings.categorySettings;
 
-            /**
-             * Set given pane as selected
-             * @param {SettingsPane} the pane to be selected.
-             */
-            $scope.select = function(pane) {
-                // deselect all panes
-                angular.forEach(panes, function(pane) {
-                    pane.selected = false;
+            $scope.change = function(category, setting){
+                //console.log(setting);
+                $scope.categorySettings[category.id][setting.id].value = setting.value;
+                Settings.set(setting.id, setting.value);
+            };
+
+            $scope.select = function(category) {
+                angular.forEach($scope.categories, function(category) {
+                    category.selected = false;
                 });
-                pane.selected = true;
+                category.selected = true;
             };
 
-            /**
-             * Add pane to @code { $scope.panes }
-             * @param {SettingsPane} the pane to be added.
-             */
-            this.addPane = function(pane) {
-                if (panes.length === 0) {
-                    $scope.select(pane);
+            $scope.$watch('categories', function(scope, categories){
+                if (Object.keys(categories).length) {
+                    $scope.select(categories[Object.keys(categories)[0]]);
                 }
-                panes.push(pane);
-                $scope.$emit('settings:dialog:paneAdded');
-            };
-
-            //Listener for adding panes.
-            $scope.$on('settings:dialog:addPane', function(data){
-                this.addPane(data);
             });
         },
         link: function($scope, element) {
+            Settings.init(element);
+
             //Listen for show
             $scope.$on('settings:dialog:show', function(){
                 show(element);
@@ -185,17 +230,21 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
             });
         }
 	};
-}]).directive('sSettingsPane', ['Settings', function(){
+}]).directive('sSettingsPane', ['Settings', 'BASE_TEMPLATE_PATH', function(Settings, BASE_TEMPLATE_PATH){
     return {
         scope: {
-            title: '@'
+            title: '@',
         },
         require: '^sSettings',
         restrict: 'E',
-        template: '<div class="settings-pane" ng-cloak ng-show="selected" ng-transclude></div>',
         transclude: true,
-        link: function($scope, iElm, iAttrs, sSettingsCtrl) {
-            sSettingsCtrl.addPane($scope);
+        templateUrl: BASE_TEMPLATE_PATH + 'settings-pane.html',
+        controller: function($scope){
+            console.log($scope);
+        },
+        link: function(/*$scope, element, attrs, sSettingsCtrl*/) {
+            //console.log($scope.$eval(attrs.settings));
+            //sSettingsCtrl.addPane($scope);
         }
     };
 }]);

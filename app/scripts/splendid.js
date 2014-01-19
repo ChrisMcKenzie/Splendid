@@ -43,7 +43,7 @@ splendid.controller('AppCtrl', function($rootScope, $scope, File, UI, Settings, 
 
     $rootScope.show = Settings.show;
     $rootScope.Editor = Editor;
-    console.log(Editor);
+    //console.log(Editor);
     $scope.themes = Editor.themes;
     $scope.theme = Editor.theme;
 });

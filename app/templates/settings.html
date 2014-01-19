@@ -9,11 +9,29 @@
 
                     <!-- This is the nav containing the toggling elements -->
                     <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
-                        <li ng-repeat="pane in panes" ng-class="{'uk-active':pane.selected}"><a ng-click="select(pane)">{{pane.title}}</a></li>
+                        <li ng-repeat="category in categories" ng-class="{'uk-active':category.selected}"><a ng-click="select(category)">{{category.title}}</a></li>
                     </ul>
                 </div>
-                <div class="settings-content uk-width-medium-4-6" ng-transclude>
-                    
+                <div class="settings-content uk-width-medium-4-6">
+                    <s-settings-pane ng-repeat="category in categories" ng-show="category.selected" >
+                        <div class="uk-form-row" ng-repeat="setting in categorySettings[category.id]">
+                           <label class="uk-form-label" for="form-h-it" >{{setting.title}}</label>
+                           <div class="uk-form-controls" ng-switch on="setting.type">
+                               <div class="select-style" ng-switch-when="0">
+                                    <select ng-model="setting.value" ng-options="o.desc for o in setting.options" ng-change="change(category, setting)"></select>
+                                </div>
+                                <div class="switch" ng-switch-when="1">
+                                    <input type="checkbox" name="switch" class="switch-checkbox" id="myswitch" ng-model="setting.value" ng-change="change(category, setting)">
+                                    <label class="switch-label" for="myswitch">
+                                        <div class="switch-inner">
+                                            <div class="switch-active"><div class="switch-switch">ON</div></div>
+                                            <div class="switch-inactive"><div class="switch-switch">OFF</div></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </s-settings-pane>
                 </div>
             </div>
         </div>
