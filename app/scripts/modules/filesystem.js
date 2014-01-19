@@ -1,6 +1,6 @@
 'use strict';
-
-splendid.factory('File', function($rootScope, $q){
+ /*jshint unused:false */
+angular.module('splendid.filesystem', ['splendid.editor']).factory('File', function($rootScope, $q, Editor){
     var _files = [];
     var _currentFile = {};
 
