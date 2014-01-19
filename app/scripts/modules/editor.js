@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @fileoverview Editor API  
+ * @fileoverview Editor API
  * @author chris@kbsurfer.com (Christopher McKenzie)
  */
  /*jshint unused:false */
@@ -9,6 +9,7 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
     var _editor;
 
     var Editor = {
+        mode: null,
         /**
          * Add editor to the api.
          */
@@ -31,7 +32,8 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
          * Set Mode Based on FilePath
          */
         setMode: function(file){
-            this.modemodeList.getModeForPath(file.name);
+            console.log(window.ace.require('ace/ext/modelist').getModeForPath(file));
+            this.mode = window.ace.require('ace/ext/modelist').getModeForPath(file);
         }
     };
 
@@ -69,6 +71,8 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
             $scope.theme = Settings.categorySettings['general']['editor.theme'];
             $scope.showGutter = Settings.categorySettings['general']['editor.showGutter'];
             $scope.wordWrap = Settings.categorySettings['general']['editor.wordWrap'];
+            $scope.mode = Editor.mode;
+
             $scope.editor = window.ace.edit(element.children('.editor')[0]);
             $scope.session = $scope.editor.getSession();
 
@@ -97,6 +101,13 @@ angular.module('splendid.editor', ['splendid.settings']).factory('Editor', funct
                 //console.log(wordWrap);
                 $scope.session.setUseWrapMode(wordWrap.value);
             }, true);
+
+            $scope.$watch(function(){ return Editor.mode; }, function(mode){
+                console.log(mode);
+                if(mode){
+                    $scope.session.setMode(mode.mode);
+                }
+            });
         }
     };
 });

@@ -89,7 +89,7 @@ angular.module('splendid.system', ['splendid.filesystem']).factory('UI', functio
                 console.log('gothcha let\'s set the mode!', file);
                 if(file) {
                     //    _editorSession.setMode('ace\/mode\/' + file.type);
-                    Editor.setMode(file);
+                    Editor.setMode(file.name);
                 }
             });
         },
@@ -136,15 +136,15 @@ angular.module('splendid.system', ['splendid.filesystem']).factory('UI', functio
 			$.UIkit.offcanvas.offcanvas.show();
 		},
 		registerShortcut: function(opts, callback){
-			//for(var keys in opts.keys){
-				//var key = opts.keys[keys].replace('+', '-');
-				// _editor.commands.addCommand({
-    //                 name: opts.name,
-    //                 bindKey: key,
-    //                 exec: callback,
-    //                 readOnly: true // false if this command should not apply in readOnly mode
-				// });
-			//}
+			/*for(var keys in opts.keys){
+				var key = opts.keys[keys].replace('+', '-');
+				_editor.commands.addCommand({
+                    name: opts.name,
+                    bindKey: key,
+                    exec: callback,
+                    readOnly: true // false if this command should not apply in readOnly mode
+				});
+			}*/
 
 			Mousetrap.bind(opts.keys, callback);
 		}
