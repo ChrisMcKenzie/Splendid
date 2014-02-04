@@ -4,7 +4,7 @@
  * @author chris@kbsurfer.com (Chris McKenzie)
  */
 
-angular.module('splendid.header', ['splendid.config']).factory('Header',function(){
+angular.module('splendid.header', ['splendid.config', 'splendid.filesystem']).factory('Header',function(){
 	return {
 		message: '',
         /**
@@ -50,9 +50,10 @@ angular.module('splendid.header', ['splendid.config']).factory('Header',function
         restrict: 'E', //Element only
         scope: {}, //Private Scope.
         templateUrl: BASE_TEMPLATE_PATH + 'header.html', // templates/header.html
-        controller: function($scope, Header){
+        controller: function($scope, Header, File){
             //Place Header API on directive scope.
             $scope.api = Header;
+            $scope.files = File.get();
         }
     };
 }]);

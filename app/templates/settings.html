@@ -18,7 +18,7 @@
                            <label class="uk-form-label" for="form-h-it" >{{setting.title}}</label>
                            <div class="uk-form-controls" ng-switch on="setting.type">
                                <div class="select-style" ng-switch-when="0">
-                                    <select ng-model="setting.value" ng-options="o.desc for o in setting.options" ng-change="change(category, setting)"></select>
+                                    <select ng-model="setting.value" ng-options="o.name for o in setting.options" ng-change="change(category, setting)"></select>
                                 </div>
                                 <div class="switch" ng-switch-when="1">
                                     <input type="checkbox" name="switch" class="switch-checkbox" id="{{setting.id}}" ng-model="setting.value" ng-change="change(category, setting)">
