@@ -6,7 +6,7 @@
   		"uikit": "2.0.x",
   		"angular-ui-ace": "0.0.x",
   		"mousetrap": "1.4.6",
-      "requirejs-angular-define": "1.1.x"
+      "requirejs-angular-define": "1.1.x",
       "requirejs": "*"
   	},
   "devDependencies": {}
