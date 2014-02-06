@@ -1,0 +1,243 @@
+/*------------------------------------*\
+    @CONTENTS
+\*------------------------------------*/
+/**
+ * RESETS..............App Resets
+ * NAVBAR..............App Navbar
+ * EDITOR..............App Editor
+ * PANEL...............App Panel styles
+ * FORM ELEMENTS.......App Form Elements
+ */
+
+
+ /**
+  * COLORS:
+  *     ^ACCENT:      #e78b8b
+  *     ^DARK:        #333333
+  *     ^TEXT-DARK:   #777777
+  *     ^LIGHT:       #F5F5F5
+  *     ^TEXT-LIGHT:  #444444
+  */
+
+
+/*------------------------------------*\
+    @RESETS
+\*------------------------------------*/
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, .uk-panel-title {
+    font-weight: 100;
+}
+
+.ng-hide {
+    display: none!important;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+
+/*------------------------------------*\
+    @NAVBAR
+\*------------------------------------*/
+.uk-navbar {
+    -webkit-app-region: drag;
+    z-index: 1000;
+}
+
+.uk-navbar .uk-navbar-brand {
+    font-weight: 200;
+}
+
+.uk-navbar .uk-navbar-nav {
+    -webkit-app-region: no-drag;
+}
+
+.uk-navbar-nav li span {
+    height: 41px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+
+/*------------------------------------*\
+    @EDITOR
+\*------------------------------------*/
+.editor-container {
+    height: 100%;
+}
+
+.ace_editor {
+    position: absolute;
+    left:0;
+    width:100%;
+    height: calc(100% - 40px);
+    border: none;
+    border-radius: 0;
+}
+
+.closable {
+    position: relative;
+    float:right;
+    right: 10px;
+    bottom: 41px;
+    width: 20px;
+}
+
+.closable:after {
+    content: "\f00d";
+    float: right;
+    font-family: "FontAwesome";
+    text-align: center;
+}
+
+/*------------------------------------*\
+    @PANEL
+\*------------------------------------*/
+.big-panel {
+    width: 66.66%;
+    height: 100%;
+}
+
+.big-panel .uk-panel {
+    height: 100%;
+    margin: 0;
+}
+
+.big-panel .uk-panel > .uk-panel-title {
+    margin: 20px 15px;
+}
+
+.big-panel .uk-panel > .uk-grid {
+    height: calc(100% - 65px);
+}
+
+.settings-content {
+    height: 100%;
+    padding-left: 0px;
+    padding: 20px 35px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+
+/*------------------------------------*\
+    @FORM ELEMENTS
+\*------------------------------------*/
+
+/**
+ * ^select
+ */
+select {
+    border: none;
+    border-bottom: 1px solid #e78b8b;
+    border-radius: 0;
+    overflow: hidden;
+    background: #404040 url("images/triangle.png") no-repeat 100% 100%;
+    color: #777;
+    font-size: 18px;
+    font-weight: 200;
+    padding: 5px 10px;
+    width: 100%;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+
+select:focus {
+    outline: none;
+    color: #ccc;
+}
+
+
+/**
+ * ^input
+ */
+input {
+    -webkit-appearance: none;
+    background: #404040;
+    border: none;
+    color: #777;
+    border-radius: 0;
+    border-bottom: 1px solid #e78b8b;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 200;
+    height: 35px;
+    outline: #e78b8b;
+}
+
+
+/**
+ * ^switch
+ */
+.switch {
+    position: relative; width: 100px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    float: right;
+}
+
+.switch-checkbox {
+    display: none;
+}
+
+.switch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 0px solid #999999; border-radius: 0px;
+}
+
+.switch-inner {
+    width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.switch-inner > div {
+    float: left; position: relative; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.switch-inner .switch-active {
+    padding-left: 15px;
+    background-color: #777; color: #FFFFFF;
+}
+
+.switch-inner .switch-inactive {
+    padding-right: 15px;
+    background-color: #777; color: #FFFFFF;
+    text-align: right;
+}
+
+.switch-switch {
+    width: 40px; margin: 0px; text-align: center;
+    border: 0px solid #999999;border-radius: 0px;
+    position: absolute; top: 0; bottom: 0;
+}
+.switch-active .switch-switch {
+    background: #e78b8b; left: 0;
+}
+.switch-inactive .switch-switch {
+    background: #A1A1A1; right: 0;
+}
+
+.switch-active .switch-switch:before {
+    content: " "; position: absolute; top: 0; left: 40px;
+    border-style: solid; border-color: #e78b8b transparent transparent #e78b8b; border-width: 15px 10px;
+}
+
+
+.switch-inactive .switch-switch:before {
+    content: " "; position: absolute; top: 0; right: 40px;
+    border-style: solid; border-color: transparent #A1A1A1 #A1A1A1 transparent; border-width: 15px 10px;
+}
+
+
+.switch-checkbox:checked + .switch-label .switch-inner {
+    margin-left: 0;
+}
