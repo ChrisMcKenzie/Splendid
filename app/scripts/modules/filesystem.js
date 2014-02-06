@@ -15,6 +15,7 @@ angular.module('splendid.filesystem', ['splendid.editor']).factory('File', funct
         },
         setCurrentFile: function(file){
             _currentFile = file;
+            Editor.setMode(file.name);
             $rootScope.$broadcast('file:current:changed', file);
             return true;
         },
