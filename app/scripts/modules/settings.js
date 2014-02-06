@@ -103,6 +103,9 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
                 this.categorySettings[lowered] = settings;
             }
         },
+        registerShortcut: function(){
+
+        },
         SELECT: 0,
         SWITCH: 1
 	};
