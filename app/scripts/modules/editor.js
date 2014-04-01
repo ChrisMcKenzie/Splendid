@@ -134,10 +134,10 @@ angular.module('splendid.editor', ['splendid.settings'])
         template: '<div class="editor"></div>',
         link: function($scope, element, attrs, ngModel){
             //console.log(Editor.theme);
-            $scope.theme = Settings.categorySettings['general']['editor.theme'];
-            $scope.showGutter = Settings.categorySettings['general']['editor.showGutter'];
-            $scope.wordWrap = Settings.categorySettings['general']['editor.wordWrap'];
-            $scope.fontSize = Settings.categorySettings['general']['editor.fontSize'];
+            $scope.theme = Settings.categorySettings.general['editor.theme'];
+            $scope.showGutter = Settings.categorySettings.general['editor.showGutter'];
+            $scope.wordWrap = Settings.categorySettings.general['editor.wordWrap'];
+            $scope.fontSize = Settings.categorySettings.general['editor.fontSize'];
             $scope.mode = Editor.mode;
 
             $scope.editor = window.ace.edit(element.children('.editor')[0]);
@@ -151,7 +151,7 @@ angular.module('splendid.editor', ['splendid.settings'])
                 });
             });
 
-            $scope.editor.setShowFoldWidgets(true)
+            $scope.editor.setShowFoldWidgets(true);
         },
         controller: function($scope){
 

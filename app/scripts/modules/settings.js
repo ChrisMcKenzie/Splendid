@@ -89,7 +89,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
 
             if(settings){
                 //console.log(settings);
-                angular.forEach(settings, function(setting, key){
+                angular.forEach(settings, function(setting){
                     self.get(setting.id).then(function(data){
                         console.log('Settings exists loading it into memory');
                         setting.value = data;
