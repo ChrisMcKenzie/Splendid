@@ -1,0 +1,39 @@
+<div id="settings" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar big-panel">
+        <div class="uk-panel">
+            <div class="uk-panel-title">
+                <i class="uk-icon-gear"></i> Settings
+            </div>
+            <div class="uk-grid">
+                <div class="uk-width-medium-2-6">
+
+                    <!-- This is the nav containing the toggling elements -->
+                    <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
+                        <li ng-repeat="category in categories" ng-class="{'uk-active':category.selected}"><a ng-click="select(category)">{{category.title}}</a></li>
+                    </ul>
+                </div>
+                <div class="settings-content uk-width-medium-4-6">
+                    <s-settings-pane ng-repeat="category in categories" ng-show="category.selected" >
+                        <div class="uk-form-row" ng-repeat="setting in categorySettings[category.id]">
+                           <label class="uk-form-label" for="form-h-it" >{{setting.title}}</label>
+                           <div class="uk-form-controls" ng-switch on="setting.type">
+                               <div class="select-style" ng-switch-when="0">
+                                    <select ng-model="setting.value" ng-options="o.name for o in setting.options" ng-change="change(category, setting)"></select>
+                                </div>
+                                <div class="switch" ng-switch-when="1">
+                                    <input type="checkbox" name="switch" class="switch-checkbox" id="{{setting.id}}" ng-model="setting.value" ng-change="change(category, setting)">
+                                    <label class="switch-label" for="{{setting.id}}">
+                                        <div class="switch-inner">
+                                            <div class="switch-active"><div class="switch-switch">ON</div></div>
+                                            <div class="switch-inactive"><div class="switch-switch">OFF</div></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </s-settings-pane>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

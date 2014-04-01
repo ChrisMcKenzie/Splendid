@@ -1,0 +1,16 @@
+{
+  "name": "splendid",
+  "main": "index.html",
+  "version": "0.0.1",
+  "single-instance": true,
+  "window": {
+    "title": "Splendid",
+    "width": 800,
+    "height": 600,
+    "min_width": 800,
+    "min_height": 600,
+    "toolbar": false,
+    "frame": false
+  },
+  "chromium-args": "--child-clean-exit"
+}
