@@ -4,3 +4,5 @@ tmp/
 bower_components/
 
 npm*
+
+dist/

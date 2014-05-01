@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://rethink1.nextgenleads.com:8080/#dataexplorer -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>RethinkDB Administration Console</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta http-equiv="no-cache">
+        <meta http-equiv="Expires" content="-1">
+        <meta http-equiv="Cache-Control" content="no-cache">
+
+        <link rel="stylesheet" type="text/css" href="./s_files/cluster.css">
+        <link rel="stylesheet" type="text/css" href="./s_files/chosen.css">
+        <link rel="stylesheet" type="text/css" href="./s_files/codemirror.css">
+        <link rel="stylesheet" type="text/css" href="./s_files/ambiance.css">
+        <link rel="stylesheet" type="text/css" href="./s_files/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="./s_files/nanoscroller.css">
+
+        <script type="text/javascript" src="./s_files/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="./s_files/ZeroClipboard.min.js"></script>
+        <script type="text/javascript" src="./s_files/handlebars.runtime-1.0.0.js"></script>
+        <script type="text/javascript" src="./s_files/underscore-min.js"></script>
+        <script type="text/javascript" src="./s_files/backbone.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-modal.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-alert.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-typeahead.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-button.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-dropdown.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="./s_files/bootstrap-popover.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.hotkeys.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.form.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.nanoscroller.min.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.color.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.timeago.js"></script>
+        <script type="text/javascript" src="./s_files/date-en-US.js"></script>
+        <script type="text/javascript" src="./s_files/d3.v2.min.js"></script>
+        <script type="text/javascript" src="./s_files/rdb_cubism.v1.js"></script>
+        <script type="text/javascript" src="./s_files/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="./s_files/xdate.js"></script>
+        <script type="text/javascript" src="./s_files/chosen.jquery.min.js"></script>
+        <script type="text/javascript" src="./s_files/template.js"></script>
+        <script type="text/javascript" src="./s_files/cluster-min.js"></script>
+        <script type="text/javascript" src="./s_files/rethinkdb.js"></script>
+        <script type="text/javascript" src="./s_files/codemirror.js"></script>
+        <script type="text/javascript" src="./s_files/javascript.js"></script>
+        <script type="text/javascript" src="./s_files/matchbrackets.js"></script>
+
+    </head>
+    <body cz-shortcut-listen="true" style="overflow: auto;"> <div id="sticky-wrap"> <div id="navbar-container"><div id="navbar" class="container"> <ul class="nav-left"> <li id="nav-logo"><a href="http://rethink1.nextgenleads.com:8080/#">Rethink<span class="highlight">DB</span></a></li> <li id="nav-dashboard" class=""><a href="http://rethink1.nextgenleads.com:8080/#dashboard">Dashboard</a></li> <li id="nav-namespaces"><a href="http://rethink1.nextgenleads.com:8080/#tables">Tables</a></li> <li id="nav-servers"><a href="http://rethink1.nextgenleads.com:8080/#servers">Servers</a></li> <li id="nav-dataexplorer" class="active"><a href="./s_files/s.html">Data Explorer</a></li> <li id="nav-logs"><a href="http://rethink1.nextgenleads.com:8080/#logs">Logs</a></li> <li id="nav-options"><a href="http://rethink1.nextgenleads.com:8080/#" class="options_link"><img src="./s_files/cog_white_16x16.png" class="cog_icon"></a></li> </ul> <div class="right-nav"> <div class="divider"></div> <form id="nav-search"> <input type="text" class="search-box" placeholder="Search" data-provide="typeahead"> </form> </div> </div></div> <div class="options_container_arrow_overlay"></div> <div class="options_background"><div class="options_full_container"> <div class="title"> <div class="title_content"> <div class="version"><img src="./s_files/db.png" class="layers">RethinkDB 1.11.3</div> <span class="title_text">Web UI Settings</span> </div> </div> <div class="options_content"> <div class="toggle-primary"> <div class="switch"> <input type="radio" class="switch-input" name="updates" value="yes" id="updates_yes" checked=""> <label for="updates_yes" class="switch-label switch-label-off">Yes</label> <input type="radio" class="switch-input" name="updates" value="no" id="updates_no"> <label for="updates_no" class="switch-label switch-label-on">No</label> <span class="switch-selection"></span> </div> </div> <div class="description">Automatically look for updates to RethinkDB</div> </div> </div></div> <div id="dev-tools"> <h3>Development tools</h3> <button id="pause-application" class="btn">Pause JS</button> </div> <div id="sidebar"><div class="sidebar-container"> <div class="container"> <div class="cluster-status row"> <div class="span3 client-connection-status"><div class="client-connection-status"> <div class="panel ">  <h5>Connected to</h5> <h4 title="Rhasta">Rhasta</h4>  </div> </div></div> <div class="span3 issues"><div class="issues"> <div class="panel "> <h5>Issues</h5>  <h4>No issues</h4>  </div> </div></div> <div class="span3 servers-connected"><div> <div class="panel "> <h5>Servers</h5> <h4>1/1 reachable</h4> </div> </div></div> <div class="span3 datacenters-connected"><div> <div class="panel "> <h5>Datacenters</h5> <h4>0/0 reachable</h4> </div> </div></div> </div> </div> <div class="issues-banner"><div>  </div></div> <div class="all-issues" style="display: none;"><div id="resolve-issues" class="section"> <div class="container"> <div id="issue-alerts"></div> <div class="issue-list"><div> <div class="issues"></div> </div></div> </div> </div></div> </div></div> <div class="updates_container"><div class="settings alert" style="display: block;"> <a class="close" href="http://rethink1.nextgenleads.com:8080/#">×</a> <p><strong>Update found:</strong> A new version of RethinkDB is available (version 1.12.2): see the <a href="https://github.com/rethinkdb/rethinkdb/releases" target="_blank" class="release_link">release announcement</a> for details.</p> </div></div> <div id="main-container"> <div id="cluster" class="container"><div id="dataexplorer"> <div class="section"> <div class="options_container"> <button class="clear_queries_link btn" title="Clear history" style="display: none;">Clear history<div class="option_icon clear_history"></div></button> <button class="close_queries_link btn" title="History">History<div class="option_icon show_history"></div></button> <button class="btn toggle_options_link" title="Options"><div class="option_icon show_options"></div></button> <button class="btn button_query change_size" title="Fullscreen"><div class="option_icon fullscreen"></div></button> </div> <h1 class="title small_margin_bottom">Data Explorer</h1> <div id="user-alert-space"></div> <div class="reason_dataexplorer_broken alert alert-error"></div> <div class="toggled_container"> <div class="arrow_dataexplorer" style="margin-right: 154px; display: none;"></div> <div class="nano_border" style="display: none;"></div> <div class="nano" style="visibility: hidden; height: 0px;"> <div class="content" tabindex="0"><div class="history_container" style="display: block;"> <ul class="history_list">  <li class="query_history " id="query_history_0"> <div class="query_id">[1]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps') <span class="right_container"> <button class="btn load_query" data-id="0">Load</button> <button class="btn delete_query" data-id="0">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_1"> <div class="query_id">[2]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('companies') <span class="right_container"> <button class="btn load_query" data-id="1">Load</button> <button class="btn delete_query" data-id="1">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_2"> <div class="query_id">[3]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('companies').limit(1) <span class="right_container"> <button class="btn load_query" data-id="2">Load</button> <button class="btn delete_query" data-id="2">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_3"> <div class="query_id">[4]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps') <span class="right_container"> <button class="btn load_query" data-id="3">Load</button> <button class="btn delete_query" data-id="3">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_4"> <div class="query_id">[5]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('ac90efc1-22bd-4568-9492-1209283db423') <span class="right_container"> <button class="btn load_query" data-id="4">Load</button> <button class="btn delete_query" data-id="4">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_5"> <div class="query_id">[6]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('ac90efc1-22bd-4568-9492-1209283db423').update({
+  "company_id": "c0aafd29-a2d6-4b7f-98c3-f491773236cf",
+  "id": "ac90efc1-22bd-4568-9492-1209283db423",
+  "map": {
+    "LeadInfo": {
+      "ApplicantInfo": {
+        "Applicant_Age": "{{dob.age}}",
+        "Applicant_Children": "{{children.length}}",
+        "Applicant_Condition_Details": "{{#ifany conditions where=true not='drinker,smoker'}}{{toString conditions where=true not='drinker,smoker'}}{{else}}none{{/ifany}}",
+        "Applicant_Conditions": "{{#ifany conditions}}Yes{{else}}No{{/ifany}}",
+        "Applicant_DateOfBirth": "{{dateFormat dob format='MM/DD/YYYY'}}",
+        "Applicant_Gender": "{{transform physiology.gender male='Male' female='Female'}}",
+        "Applicant_HeightFeet": "{{toFeet physiology.height}}",
+        "Applicant_HeightInches": "{{toInches physiology.height}}",
+        "Applicant_MaritalStatus": "{{#ifany spouse}}Married{{else}}Single{{/ifany}}",
+        "Applicant_Medication": "{{#ifany medications}}Yes{{else}}No{{/ifany}}",
+        "Applicant_MedicationDetails": "{{join medications}}",
+        "Applicant_Smoke": "{{logical conditions.smoke}}",
+        "Applicant_Student": "{{logical demographics.student}}",
+        "Applicant_Weight": "{{physiology.weight}}"
+      },
+      "Compliance": {
+        "Consent": "{{meta.consent_message}}",
+        "LeadID": "{{meta.lead_id}}",
+        "MinimumPrice": "{{meta.minimum_price}}",
+        "OriginDate": "{{meta.created}}",
+        "PrimaryPhoneType": "{{transform contact.phones.0.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SecondaryPhoneType": "{{transform contact.phones.1.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SourceDomain": "{{meta.domain}}",
+        "TCPACompliant": "{{logical meta.tcpa_compliant}}",
+        "UserAgent": "{{meta.ua}}"
+      },
+      "Contacts": {
+        "Contact": {
+          "Address": {
+            "City": "{{contact.addresses.0.city}}",
+            "StateCode": "{{contact.addresses.0.state}}",
+            "Street": "{{contact.addresses.0.street1}} {{contact.addresses.0.street2}}",
+            "ZipCode": "{{contact.addresses.0.zip}}"
+          },
+          "EmailAddress": "{{contact.emails.0.address}}",
+          "Name": {
+            "First": "{{name.first}}",
+            "Last": "{{name.last}}"
+          },
+          "Phone": {
+            "Home": "{{contact.phones.0.number}}",
+            "Mobile": "{{contact.phones.2.number}}",
+            "Work": "{{contact.phones.1.number}}"
+          }
+        }
+      },
+      "IPAddress": "{{meta.ip}}",
+      "SourceType": "Search - Paid"
+    },
+    "ProjectInfo": {
+      "Exclusive": "{{meta.exclusive}}",
+      "IPAddress": "{{meta.ip}}",
+      "ProjectID": "30",
+      "PublisherID": "1234",
+      "SubProject": "Health Insurance",
+      "Timestamp": "{{meta.procedure.data.timestamp}}",
+      "Token": "{{meta.procedure.data.token}}",
+      "VerticalID": "6"
+    }
+  }
+}) <span class="right_container"> <button class="btn load_query" data-id="5">Load</button> <button class="btn delete_query" data-id="5">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_6"> <div class="query_id">[7]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('ac90efc1-22bd-4568-9492-1209283db423').delete() <span class="right_container"> <button class="btn load_query" data-id="6">Load</button> <button class="btn delete_query" data-id="6">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_7"> <div class="query_id">[8]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').insert({
+  "company_id": "c0aafd29-a2d6-4b7f-98c3-f491773236cf",
+  "id": "ac90efc1-22bd-4568-9492-1209283db423",
+  "map": {
+    "LeadInfo": {
+      "ApplicantInfo": {
+        "Applicant_Age": "{{dob.age}}",
+        "Applicant_Children": "{{children.length}}",
+        "Applicant_Condition_Details": "{{#ifany conditions where=true not='drinker,smoker'}}{{toString conditions where=true not='drinker,smoker'}}{{else}}none{{/ifany}}",
+        "Applicant_Conditions": "{{#ifany conditions}}Yes{{else}}No{{/ifany}}",
+        "Applicant_DateOfBirth": "{{dateFormat dob format='MM/DD/YYYY'}}",
+        "Applicant_Gender": "{{transform physiology.gender male='Male' female='Female'}}",
+        "Applicant_HeightFeet": "{{toFeet physiology.height}}",
+        "Applicant_HeightInches": "{{toInches physiology.height}}",
+        "Applicant_MaritalStatus": "{{#ifany spouse}}Married{{else}}Single{{/ifany}}",
+        "Applicant_Medication": "{{#ifany medications}}Yes{{else}}No{{/ifany}}",
+        "Applicant_MedicationDetails": "{{join medications}}",
+        "Applicant_Smoke": "{{logical conditions.smoke}}",
+        "Applicant_Student": "{{logical demographics.student}}",
+        "Applicant_Weight": "{{physiology.weight}}"
+      },
+      "Compliance": {
+        "Consent": "{{meta.consent_message}}",
+        "LeadID": "{{meta.lead_id}}",
+        "MinimumPrice": "{{meta.minimum_price}}",
+        "OriginDate": "{{meta.created}}",
+        "PrimaryPhoneType": "{{transform contact.phones.0.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SecondaryPhoneType": "{{transform contact.phones.1.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SourceDomain": "{{meta.domain}}",
+        "TCPACompliant": "{{logical meta.tcpa_compliant}}",
+        "UserAgent": "{{meta.ua}}"
+      },
+      "Contacts": {
+        "Contact": {
+          "Address": {
+            "City": "{{contact.addresses.0.city}}",
+            "StateCode": "{{contact.addresses.0.state}}",
+            "Street": "{{contact.addresses.0.street1}} {{contact.addresses.0.street2}}",
+            "ZipCode": "{{contact.addresses.0.zip}}"
+          },
+          "EmailAddress": "{{contact.emails.0.address}}",
+          "Name": {
+            "First": "{{name.first}}",
+            "Last": "{{name.last}}"
+          },
+          "Phone": {
+            "Home": "{{contact.phones.0.number}}",
+            "Mobile": "{{contact.phones.2.number}}",
+            "Work": "{{contact.phones.1.number}}"
+          }
+        }
+      },
+      "IPAddress": "{{meta.ip}}",
+      "SourceType": "Search - Paid"
+    },
+    "ProjectInfo": {
+      "Exclusive": "{{meta.exclusive}}",
+      "IPAddress": "{{meta.ip}}",
+      "ProjectID": "30",
+      "PublisherID": "1234",
+      "SubProject": "Health Insurance",
+      "Timestamp": "{{meta.procedure.data.timestamp}}",
+      "Token": "{{meta.procedure.data.token}}",
+      "VerticalID": "6"
+    }
+  }
+}) <span class="right_container"> <button class="btn load_query" data-id="7">Load</button> <button class="btn delete_query" data-id="7">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_8"> <div class="query_id">[9]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get("ac90efc1-22bd-4568-9492-1209283db423") <span class="right_container"> <button class="btn load_query" data-id="8">Load</button> <button class="btn delete_query" data-id="8">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_9"> <div class="query_id">[10]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get("ac90efc1-22bd-4568-9492-1209283db423").replace({
+  "company_id": "c0aafd29-a2d6-4b7f-98c3-f491773236cf",
+  "id": "ac90efc1-22bd-4568-9492-1209283db423",
+  "map": {
+    "LeadInfo": {
+      "ApplicantInfo": {
+        "Applicant_Age": "{{dob.age}}",
+        "Applicant_Children": "{{children.length}}",
+        "Applicant_Condition_Details": "{{#ifany conditions where=true not='drinker,smoker'}}{{toString conditions where=true not='drinker,smoker'}}{{else}}none{{/ifany}}",
+        "Applicant_Conditions": "{{#ifany conditions}}Yes{{else}}No{{/ifany}}",
+        "Applicant_DateOfBirth": "{{dateFormat dob format='MM/DD/YYYY'}}",
+        "Applicant_Gender": "{{transform physiology.gender male='Male' female='Female'}}",
+        "Applicant_HeightFeet": "{{toFeet physiology.height}}",
+        "Applicant_HeightInches": "{{toInches physiology.height}}",
+        "Applicant_MaritalStatus": "{{#ifany spouse}}Married{{else}}Single{{/ifany}}",
+        "Applicant_Medication": "{{#ifany medications}}Yes{{else}}No{{/ifany}}",
+        "Applicant_MedicationDetails": "{{join medications}}",
+        "Applicant_Smoke": "{{logical conditions.smoke}}",
+        "Applicant_Student": "{{logical demographics.student}}",
+        "Applicant_Weight": "{{physiology.weight}}"
+      },
+      "Compliance": {
+        "Consent": "{{meta.consent_message}}",
+        "LeadID": "{{meta.lead_id}}",
+        "MinimumPrice": "{{meta.minimum_price}}",
+        "OriginDate": "{{meta.created}}",
+        "PrimaryPhoneType": "{{transform contact.phones.0.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SecondaryPhoneType": "{{transform contact.phones.1.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SourceDomain": "{{meta.domain}}",
+        "TCPACompliant": "{{logical meta.tcpa_compliant}}",
+        "UserAgent": "{{meta.ua}}"
+      },
+      "Contacts": {
+        "Contact": {
+          "Address": {
+            "City": "{{contact.addresses.0.city}}",
+            "StateCode": "{{contact.addresses.0.state}}",
+            "Street": "{{contact.addresses.0.street1}} {{contact.addresses.0.street2}}",
+            "ZipCode": "{{contact.addresses.0.zip}}"
+          },
+          "EmailAddress": "{{contact.emails.0.address}}",
+          "Name": {
+            "First": "{{name.first}}",
+            "Last": "{{name.last}}"
+          },
+          "Phone": {
+            "Home": "{{phoneFormat contact.phones.0.number format='AAAPPPLLLL'}}"
+          }
+        }
+      },
+      "IPAddress": "{{meta.ip}}",
+      "SourceType": "Search - Paid"
+    },
+    "ProjectInfo": {
+      "Exclusive": "{{meta.exclusive}}",
+      "IPAddress": "{{meta.ip}}",
+      "ProjectID": "30",
+      "PublisherID": "1234",
+      "SubProject": "Health Insurance",
+      "Timestamp": "{{meta.procedure.data.timestamp}}",
+      "Token": "{{meta.procedure.data.token}}",
+      "VerticalID": "6"
+    }
+  }
+}) <span class="right_container"> <button class="btn load_query" data-id="9">Load</button> <button class="btn delete_query" data-id="9">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_10"> <div class="query_id">[11]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get("d528112c-4824-43b4-bd64-290bda36c20b").replace({
+  "company_id": "c0aafd29-a2d6-4b7f-98c3-f491773236cf",
+  "id": "d528112c-4824-43b4-bd64-290bda36c20b",
+  "map": {
+    "LeadInfo": {
+      "AdditionInfo": "N/A",
+      "ApplicantInfo": {
+        "Applicant_Age": "{{dob.age}}",
+        "Applicant_Children": "{{children.length}}",
+        "Applicant_Condition_Details": "{{#ifany conditions where=true not='drinker,smoker'}}{{toString conditions where=true not='drinker,smoker'}}{{else}}none{{/ifany}}",
+        "Applicant_Conditions": "{{#ifany conditions}}Yes{{else}}No{{/ifany}}",
+        "Applicant_DateOfBirth": "{{dateFormat dob format='MM/DD/YYYY'}}",
+        "Applicant_Gender": "{{transform physiology.gender male='Male' female='Female'}}",
+        "Applicant_HeightFeet": "{{toFeet physiology.height}}",
+        "Applicant_HeightInches": "{{toInches physiology.height}}",
+        "Applicant_MaritalStatus": "{{#ifany spouse}}Married{{else}}Single{{/ifany}}",
+        "Applicant_Medication": "{{#ifany medications}}Yes{{else}}No{{/ifany}}",
+        "Applicant_MedicationDetails": "{{join medications}}",
+        "Applicant_Smoke": "{{logical conditions.smoke}}",
+        "Applicant_Weight": "{{physiology.weight}}"
+      },
+      "Compliance": {
+        "Consent": "{{meta.consent_message}}",
+        "LeadID": "{{meta.lead_id}}",
+        "MinimumPrice": "{{meta.minimum_price}}",
+        "OriginDate": "{{meta.created}}",
+        "PrimaryPhoneType": "{{transform contact.phones.0.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SecondaryPhoneType": "{{transform contact.phones.1.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SourceDomain": "{{meta.domain}}",
+        "TCPACompliant": "{{logical meta.tcpa_compliant}}",
+        "UserAgent": "{{meta.ua}}"
+      },
+      "Contacts": {
+        "Contact": {
+          "Address": {
+            "City": "{{contact.addresses.0.city}}",
+            "StateCode": "{{contact.addresses.0.state}}",
+            "Street": "{{contact.addresses.0.street1}} {{contact.addresses.0.street2}}",
+            "ZipCode": "{{contact.addresses.0.zip}}"
+          },
+          "EmailAddress": "{{contact.emails.0.address}}",
+          "Name": {
+            "First": "{{name.first}}",
+            "Last": "{{name.last}}"
+          },
+          "Phone": {
+            "Home": "{{phoneFormat contact.phones.0.number format='AAAPPPLLLL'}}"
+          }
+        }
+      },
+      "IPAddress": "{{meta.ip}}",
+      "Income": {
+        "MonthlyIncome": "{{toMonthly demographics.employment.income.actual}}",
+        "YearlyIncome": "{{demographics.employment.income.actual}}"
+      },
+      "Residence": {
+        "ResidenceMonthlyPayment": "{{demographics.residence.monthly_payment}}",
+        "ResidenceMonths": "{{demographics.residence.lived_duration}}",
+        "ResidenceType": "{{transform demographics.residence.type rent='Lease' own='Own'}}",
+        "ResidenceYears": "{{toYears demographics.residence.lived_duration}}"
+      },
+      "SourceType": "Search - Paid"
+    },
+    "ProjectInfo": {
+      "Exclusive": "{{meta.exclusive}}",
+      "IPAddress": "{{meta.ip}}",
+      "ProjectID": "30",
+      "PublisherID": "1234",
+      "SubProject": "Health Insurance",
+      "Timestamp": "{{meta.ping.data.Timestamp}}",
+      "Token": "{{meta.ping.data.Token}}",
+      "VerticalID": "6"
+    }
+  }
+}) <span class="right_container"> <button class="btn load_query" data-id="10">Load</button> <button class="btn delete_query" data-id="10">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_11"> <div class="query_id">[12]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get("d528112c-4824-43b4-bd64-290bda36c20b").replace({
+  "company_id": "c0aafd29-a2d6-4b7f-98c3-f491773236cf",
+  "id": "d528112c-4824-43b4-bd64-290bda36c20b",
+  "map": {
+    "LeadInfo": {
+      "AdditionInfo": "N/A",
+      "ApplicantInfo": {
+        "Applicant_Age": "{{dob.age}}",
+        "Applicant_Children": "{{children.length}}",
+        "Applicant_Condition_Details": "{{#ifany conditions where=true not='drinker,smoker'}}{{toString conditions where=true not='drinker,smoker'}}{{else}}none{{/ifany}}",
+        "Applicant_Conditions": "{{#ifany conditions}}Yes{{else}}No{{/ifany}}",
+        "Applicant_DateOfBirth": "{{dateFormat dob format='MM/DD/YYYY'}}",
+        "Applicant_Gender": "{{transform physiology.gender male='Male' female='Female'}}",
+        "Applicant_HeightFeet": "{{toFeet physiology.height}}",
+        "Applicant_HeightInches": "{{toInches physiology.height}}",
+        "Applicant_MaritalStatus": "{{#ifany spouse}}Married{{else}}Single{{/ifany}}",
+        "Applicant_Medication": "{{#ifany medications}}Yes{{else}}No{{/ifany}}",
+        "Applicant_MedicationDetails": "{{join medications}}",
+        "Applicant_Smoke": "{{logical conditions.smoke}}",
+        "Applicant_Weight": "{{physiology.weight}}"
+      },
+      "Compliance": {
+        "Consent": "{{meta.consent_message}}",
+        "LeadID": "{{meta.lead_id}}",
+        "MinimumPrice": "{{meta.minimum_price}}",
+        "OriginDate": "{{meta.created}}",
+        "PrimaryPhoneType": "{{transform contact.phones.0.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SecondaryPhoneType": "{{transform contact.phones.1.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SourceDomain": "{{meta.domain}}",
+        "TCPACompliant": "{{logical meta.tcpa_compliant}}",
+        "UserAgent": "{{meta.ua}}"
+      },
+      "Contacts": {
+        "Contact": {
+          "Address": {
+            "City": "{{contact.addresses.0.city}}",
+            "StateCode": "{{contact.addresses.0.state}}",
+            "Street": "{{contact.addresses.0.street1}} {{contact.addresses.0.street2}}",
+            "ZipCode": "{{contact.addresses.0.zip}}"
+          },
+          "EmailAddress": "{{contact.emails.0.address}}",
+          "Name": {
+            "First": "{{name.first}}",
+            "Last": "{{name.last}}"
+          },
+          "Phone": {
+            "Home": "{{phoneFormat contact.phones.0.number format='AAAPPPLLLL'}}"
+          }
+        }
+      },
+      "IPAddress": "{{meta.ip}}",
+      "Income": {
+        "MonthlyIncome": "{{toMonthly demographics.employment.income.actual}}",
+        "YearlyIncome": "{{demographics.employment.income.actual}}"
+      },
+      "Residence": {
+        "ResidenceMonthlyPayment": "{{demographics.residence.monthly_payment}}",
+        "ResidenceMonths": "{{demographics.residence.lived_duration}}",
+        "ResidenceType": "{{transform demographics.residence.type rent='Lease' own='Own'}}",
+        "ResidenceYears": "{{toYears demographics.residence.lived_duration}}"
+      },
+      "SourceType": "Search - Paid"
+    },
+    "ProjectInfo": {
+      "Exclusive": "{{meta.exclusive}}",
+      "IPAddress": "{{meta.ip}}",
+      "ProjectID": "30",
+      "PublisherID": "64006",
+      "SubProject": "Health Insurance",
+      "Timestamp": "{{meta.ping.data.Timestamp}}",
+      "Token": "{{meta.ping.data.Token}}",
+      "VerticalID": "6"
+    }
+  }
+}) <span class="right_container"> <button class="btn load_query" data-id="11">Load</button> <button class="btn delete_query" data-id="11">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_12"> <div class="query_id">[13]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get("ac90efc1-22bd-4568-9492-1209283db423").replace({
+  "company_id": "c0aafd29-a2d6-4b7f-98c3-f491773236cf",
+  "id": "ac90efc1-22bd-4568-9492-1209283db423",
+  "map": {
+    "LeadInfo": {
+      "ApplicantInfo": {
+        "Applicant_Age": "{{dob.age}}",
+        "Applicant_Children": "{{children.length}}",
+        "Applicant_Condition_Details": "{{#ifany conditions where=true not='drinker,smoker'}}{{toString conditions where=true not='drinker,smoker'}}{{else}}none{{/ifany}}",
+        "Applicant_Conditions": "{{#ifany conditions}}Yes{{else}}No{{/ifany}}",
+        "Applicant_DateOfBirth": "{{dateFormat dob format='MM/DD/YYYY'}}",
+        "Applicant_Gender": "{{transform physiology.gender male='Male' female='Female'}}",
+        "Applicant_HeightFeet": "{{toFeet physiology.height}}",
+        "Applicant_HeightInches": "{{toInches physiology.height}}",
+        "Applicant_MaritalStatus": "{{#ifany spouse}}Married{{else}}Single{{/ifany}}",
+        "Applicant_Medication": "{{#ifany medications}}Yes{{else}}No{{/ifany}}",
+        "Applicant_MedicationDetails": "{{join medications}}",
+        "Applicant_Smoke": "{{logical conditions.smoke}}",
+        "Applicant_Student": "{{logical demographics.student}}",
+        "Applicant_Weight": "{{physiology.weight}}"
+      },
+      "Compliance": {
+        "Consent": "{{meta.consent_message}}",
+        "LeadID": "{{meta.lead_id}}",
+        "MinimumPrice": "{{meta.minimum_price}}",
+        "OriginDate": "{{meta.created}}",
+        "PrimaryPhoneType": "{{transform contact.phones.0.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SecondaryPhoneType": "{{transform contact.phones.1.type cell='Mobile' work='Landline' home='Landline'}}",
+        "SourceDomain": "{{meta.domain}}",
+        "TCPACompliant": "{{logical meta.tcpa_compliant}}",
+        "UserAgent": "{{meta.ua}}"
+      },
+      "Contacts": {
+        "Contact": {
+          "Address": {
+            "City": "{{contact.addresses.0.city}}",
+            "StateCode": "{{contact.addresses.0.state}}",
+            "Street": "{{contact.addresses.0.street1}} {{contact.addresses.0.street2}}",
+            "ZipCode": "{{contact.addresses.0.zip}}"
+          },
+          "EmailAddress": "{{contact.emails.0.address}}",
+          "Name": {
+            "First": "{{name.first}}",
+            "Last": "{{name.last}}"
+          },
+          "Phone": {
+            "Home": "{{phoneFormat contact.phones.0.number format='AAAPPPLLLL'}}"
+          }
+        }
+      },
+      "IPAddress": "{{meta.ip}}",
+      "SourceType": "Search - Paid"
+    },
+    "ProjectInfo": {
+      "Exclusive": "{{meta.exclusive}}",
+      "IPAddress": "{{meta.ip}}",
+      "ProjectID": "30",
+      "PublisherID": "64006",
+      "SubProject": "Health Insurance",
+      "Timestamp": "{{meta.procedure.data.timestamp}}",
+      "Token": "{{meta.procedure.data.token}}",
+      "VerticalID": "6"
+    }
+  }
+}) <span class="right_container"> <button class="btn load_query" data-id="12">Load</button> <button class="btn delete_query" data-id="12">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_13"> <div class="query_id">[14]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps') <span class="right_container"> <button class="btn load_query" data-id="13">Load</button> <button class="btn delete_query" data-id="13">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_14"> <div class="query_id">[15]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('b7168304-b939-40b0-87fb-ddd0b28f43cb') <span class="right_container"> <button class="btn load_query" data-id="14">Load</button> <button class="btn delete_query" data-id="14">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_15"> <div class="query_id">[16]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('lead') <span class="right_container"> <button class="btn load_query" data-id="15">Load</button> <button class="btn delete_query" data-id="15">Remove</button> <img src="./s_files/warning-icon.png" class="broken_query" title="This query produced an error"> </span> </span> </div> </li>    <li class="query_history " id="query_history_16"> <div class="query_id">[17]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads') <span class="right_container"> <button class="btn load_query" data-id="16">Load</button> <button class="btn delete_query" data-id="16">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_17"> <div class="query_id">[18]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').limit(1) <span class="right_container"> <button class="btn load_query" data-id="17">Load</button> <button class="btn delete_query" data-id="17">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_18"> <div class="query_id">[19]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter({lead: {name: {lname: 'yolande'}}}) <span class="right_container"> <button class="btn load_query" data-id="18">Load</button> <button class="btn delete_query" data-id="18">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_19"> <div class="query_id">[20]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter({lead: {name: {last: 'yolande'}}}) <span class="right_container"> <button class="btn load_query" data-id="19">Load</button> <button class="btn delete_query" data-id="19">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_20"> <div class="query_id">[21]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter({lead: {name: {last: 'pee'}}}) <span class="right_container"> <button class="btn load_query" data-id="20">Load</button> <button class="btn delete_query" data-id="20">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_21"> <div class="query_id">[22]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter({lead: {name: {last: 'joseph'}}}) <span class="right_container"> <button class="btn load_query" data-id="21">Load</button> <button class="btn delete_query" data-id="21">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_22"> <div class="query_id">[23]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('purchases') <span class="right_container"> <button class="btn load_query" data-id="22">Load</button> <button class="btn delete_query" data-id="22">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_23"> <div class="query_id">[24]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('purchases').filter({status: 'completed'}).count() <span class="right_container"> <button class="btn load_query" data-id="23">Load</button> <button class="btn delete_query" data-id="23">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_24"> <div class="query_id">[25]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('zip_codes').filter({ZipCode: 92371}) <span class="right_container"> <button class="btn load_query" data-id="24">Load</button> <button class="btn delete_query" data-id="24">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_25"> <div class="query_id">[26]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('zip_codes').limit(1) <span class="right_container"> <button class="btn load_query" data-id="25">Load</button> <button class="btn delete_query" data-id="25">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_26"> <div class="query_id">[27]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('zip_codes').filter({ZipCode: "92371"}) <span class="right_container"> <button class="btn load_query" data-id="26">Load</button> <button class="btn delete_query" data-id="26">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_27"> <div class="query_id">[28]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('zip_codes').filter({ZipCode: "85268"}) <span class="right_container"> <button class="btn load_query" data-id="27">Load</button> <button class="btn delete_query" data-id="27">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_28"> <div class="query_id">[29]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps') <span class="right_container"> <button class="btn load_query" data-id="28">Load</button> <button class="btn delete_query" data-id="28">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_29"> <div class="query_id">[30]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('ff3065d5-3845-4f25-b193-30d0d096ec1c') <span class="right_container"> <button class="btn load_query" data-id="29">Load</button> <button class="btn delete_query" data-id="29">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_30"> <div class="query_id">[31]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('ff3065d5-3845-4f25-b193-30d0d096ec1c').update({map: {
+    "Addr1": "PO Box 100",
+    "Addr2": "{{contact.addresses.0.street2}}",
+    "Age": "{{dob.age}}",
+    "City": "{{contact.addresses.0.city}}",
+    "DOBDay": "{{dateFormat dob format=\"DD\"}}",
+    "DOBMonth": "{{dateFormat dob format=\"MM\"}}",
+    "DOBYear": "{{dateFormat dob format=\"YYYY\"}}",
+    "Email": "{{contact.emails.0.address}}",
+    "Firstname": "{{name.first}}",
+    "HeightFT": "{{toFeet physiology.height}}",
+    "HeightIN": "{{toInches physiology.height}}",
+    "Homephone": "{{#each contact.phones}}{{#if primary}}{{number}}{{/if}}{{/each}}",
+    "LSID": "182",
+    "Lastname": "{{name.last}}",
+    "LeadTypeID": "1",
+    "LeadsourceID": "182",
+    "Scope": "{{def 'ws' meta.type}}",
+    "Sex": "{{transform physiology.sex male='M' female='F'}}",
+    "State": "{{contact.addresses.0.state}}",
+    "WeightLbs": "{{physiology.weight}}",
+    "Workphone": "{{#each contact.phones}}{{#unless primary}}{{number}}{{/unless}}{{/each}}",
+    "Zip": "{{contact.addresses.0.zip}}",
+    "ele10": "{{logical conditions.smoker short=true}}",
+    "ele11": "{{logical conditions.asthma short=true}}",
+    "ele12": "{{logical conditions.depression short=true}}",
+    "ele13": "{{logical conditions.diabetes short=true}}",
+    "ele14": "{{logical conditions.high_blood_pressure short=true}}",
+    "ele141": "asdasfa2923908qasd",
+    "ele15": "{{logical conditions.cancer short=true}}",
+    "ele16": "{{logical conditions.AIDS short=true}}",
+    "ele17": "{{logical conditions.stroke short=true}}",
+    "ele18": "{{def 'unknown' demographics.employment.occupation}}",
+    "ele19": "{{logical insurance.currently_insured short=true}}",
+    "ele20": "{{#ifequal demographics.residence.country 'USA'}}Y{{else}}N{{/ifequal}}",
+    "ele21": "{{#if contact.best_time.start}}{{#if contact.best_time.stop}}{{contact.best_time.start}} to {{contact.best_time.stop}}{{else}}anytime{{/if}}{{/if}}",
+    "ele23": "{{#ifany conditions}}Y{{else}}N{{/ifany}}",
+    "ele24": "{{fromNow insurance.desired_start}}",
+    "ele25": "{{def 1 null}}",
+    "ele26": "{{logical conditions.pregnant short=true}}",
+    "ele27": "{{logical insurance.previously_denied short=true}}",
+    "ele28": "",
+    "ele29": "{{join medications}}",
+    "ele31": "{{insurance.current_company}}",
+    "ele32": "{{def 'PPO' insurance.desired_plan_type}}",
+    "ele33": "{{def '20' insurance.current_copay}}",
+    "ele34": "{{def '2000' insurance.current_deductable}}",
+    "ele35": "{{def 'PPO' insurance.current_plan_type}}",
+    "ele37": "",
+    "ele4": "{{#if spouse}}married{{else}}single{{/if}}",
+    "ele44": "",
+    "ele5": "{{demographics.income.actual}}",
+    "ele59": "{{children.length}}",
+    "ele60": "{{transform spouse.physiology.gender male='M' female='F'}}",
+    "ele61": "{{toFeet spouse.physiology.height}}",
+    "ele62": "{{toInches spouse.physiology.height}}",
+    "ele63": "{{spouse.physiology.weight}}",
+    "ele66": "{{logical spouse.conditions.smoker short=true}}",
+    "ele67": "{{spouse.dob.month}}",
+    "ele68": "{{spouse.dob.day}}",
+    "ele69": "{{spouse.dob.year}}",
+    "ele7": "{{def 'N' demographics.employment.self_employed}}",
+    "ele70": "{{transform children.0.physiology.gender}}",
+    "ele71": "{{toFeet children.0.physiology.height}}",
+    "ele72": "{{toInches children.0.physiology.height}}",
+    "ele73": "{{children.0.physiology.weight}}",
+    "ele74": "{{children.0.conditions.smoker}}",
+    "ele75": "{{children.0.dob.month}}",
+    "ele76": "{{children.0.dob.day}}",
+    "ele77": "{{children.0.dob.year}}",
+    "ele78": "{{transform children.1.physiology.gender}}",
+    "ele79": "{{toFeet children.1.physiology.height}}",
+    "ele8": "{{transform demographics.residence.type rent='Rent' own='home owner'}}",
+    "ele80": "{{toInches children.1.physiology.height}}",
+    "ele81": "{{children.1.physiology.weight}}",
+    "ele82": "{{children.1.conditions.smoker}}",
+    "ele83": "{{children.1.dob.month}}",
+    "ele84": "{{children.1.dob.day}}",
+    "ele85": "{{children.1.dob.year}}",
+    "ele86": "{{meta.ip}}",
+    "ele87": "{{meta.created}}",
+    "ele88": "{{logical conditions.heart short=true}}",
+    "ele9": "{{logical conditions.drinker short=true}}"
+}}) <span class="right_container"> <button class="btn load_query" data-id="30">Load</button> <button class="btn delete_query" data-id="30">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_31"> <div class="query_id">[32]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').get('ff3065d5-3845-4f25-b193-30d0d096ec1c') <span class="right_container"> <button class="btn load_query" data-id="31">Load</button> <button class="btn delete_query" data-id="31">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_32"> <div class="query_id">[33]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').sample(1) <span class="right_container"> <button class="btn load_query" data-id="32">Load</button> <button class="btn delete_query" data-id="32">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_33"> <div class="query_id">[34]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter(function(user) {
+    return user("subscriptionDate").during( r.time(2014, 4, 10, 'Z'), r.time(2014, 4, 10, 'Z') )
+}) <span class="right_container"> <button class="btn load_query" data-id="33">Load</button> <button class="btn delete_query" data-id="33">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_34"> <div class="query_id">[35]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter(function(user) {
+    return user("subscriptionDate").during( r.time(2014, 4, 9, 'Z'), r.time(2014, 4, 10, 'Z') )
+}) <span class="right_container"> <button class="btn load_query" data-id="34">Load</button> <button class="btn delete_query" data-id="34">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_35"> <div class="query_id">[36]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter(function(user) {
+    return user("created").during( r.time(2014, 4, 9, 'Z'), r.time(2014, 4, 10, 'Z') )
+}) <span class="right_container"> <button class="btn load_query" data-id="35">Load</button> <button class="btn delete_query" data-id="35">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_36"> <div class="query_id">[37]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').filter({lead:{'@meta':{campaign_source: "NG_GINT"}}},{created: r.today()}).orderBy(r.desc('created')).limit(40) <span class="right_container"> <button class="btn load_query" data-id="36">Load</button> <button class="btn delete_query" data-id="36">Remove</button> <img src="./s_files/warning-icon.png" class="broken_query" title="This query produced an error"> </span> </span> </div> </li>    <li class="query_history " id="query_history_37"> <div class="query_id">[38]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('companies') <span class="right_container"> <button class="btn load_query" data-id="37">Load</button> <button class="btn delete_query" data-id="37">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_38"> <div class="query_id">[39]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('companies').insert({
+  "balances": {
+    "available": 999999,
+    "listed": 999999
+  },
+  "contact": {
+    "address": {
+      "city": "San Diego",
+      "country": "USA",
+      "state": "CA",
+      "street1": "123 Fake Street",
+      "zip": "92110"
+    },
+    "email": "doug@somecompany.com",
+    "first_name": "Monica",
+    "last_name": "Schmiede",
+    "phone": "2124613227"
+  },
+  "created": r.now(),
+  "name": "Datalot",
+  "timezone": -8,
+  "updated": r.now()
+}) <span class="right_container"> <button class="btn load_query" data-id="38">Load</button> <button class="btn delete_query" data-id="38">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_39"> <div class="query_id">[40]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaign') <span class="right_container"> <button class="btn load_query" data-id="39">Load</button> <button class="btn delete_query" data-id="39">Remove</button> <img src="./s_files/warning-icon.png" class="broken_query" title="This query produced an error"> </span> </span> </div> </li>    <li class="query_history " id="query_history_40"> <div class="query_id">[41]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns') <span class="right_container"> <button class="btn load_query" data-id="40">Load</button> <button class="btn delete_query" data-id="40">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_41"> <div class="query_id">[42]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns').limit(1) <span class="right_container"> <button class="btn load_query" data-id="41">Load</button> <button class="btn delete_query" data-id="41">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_42"> <div class="query_id">[43]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').limit(1) <span class="right_container"> <button class="btn load_query" data-id="42">Load</button> <button class="btn delete_query" data-id="42">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_43"> <div class="query_id">[44]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps').insert({
+  "company_id": "2cacb578-7eb8-46a1-b53f-74ca473491e4",
+  "map": {
+    "access_key": "lm68clu5eg",
+    "source_id": 10369,
+    "product_id": 227,
+    "campaign_id": "health",
+    "contact_permission": {
+      "phone_explicit": true,
+      "mobile_explicit": true,
+    },
+    "contact_info": {
+      "general_info": {
+        "first_name": "{{name.first}}",
+        "last_name": "{{name.last}}",
+        "street1": "{{contact.addresses.0.street1}}",
+        "city": "{{contact.addresses.0.city}}",
+        "zip_code": "{{contact.addresses.0.zip}}",
+        "phone_home": "{{phoneFormat contact.phones.0.number format='AAAPPPLLLL'}}",
+        "ip_address": "{{meta.ip}}",
+        "gender": "{{transform physiology.sex male='M' female='F'}}",
+        "dob_year": "{{dob.year}}",
+        "dob_month": "{{dob.month}}",
+        "dob_day": "{{dob.day}}",
+        "datatime_collected": "{{meta.created}}",
+        "email": "{{contact.emails.0.address}}"
+      },
+      "product_info": {
+        "height_feet": "{{{toFeet physiology.height}}}",
+        "height_inches": "{{{toInches physiology.height}}}",
+        "weight": "{{{physiology.weight}}}",
+        "age": "{{{dob.age}}}",
+        "is_smoker": "{{{conditions.smoker}}}",
+        "is_insured": "{{{insurance.currently_insured}}}",
+        "existing_condition": "{{toString conditions where=true not='smoker,pregnant'}}",
+        "expectant_parent": "{{{conditions.pregnant}}}",
+        "previously_denied": "{{{insurance.previously_denied}}}",
+        "subsidy": "{{#ifany insurance.eligibilities}}yes{{else}}no{{/ifany}}",
+      }
+    },
+    "test": true
+  },
+  "name": "Datalot test map"
+}) <span class="right_container"> <button class="btn load_query" data-id="43">Load</button> <button class="btn delete_query" data-id="43">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_44"> <div class="query_id">[45]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns').insert({
+  "bid": 4,
+  "bid_multiplier": 1,
+  "bid_offset": 0,
+  "bid_override": null,
+  "company_id": "2cacb578-7eb8-46a1-b53f-74ca473491e4",
+  "created": r.now(),
+  "daily_budget": null,
+  "daily_max_leads": null,
+  "delivery_schedule": [
+    "1-0",
+    "1-1",
+    "1-2",
+    "1-3",
+    "1-4",
+    "1-5",
+    "1-6",
+    "1-7",
+    "1-8",
+    "1-9",
+    "1-10",
+    "1-11",
+    "1-12",
+    "1-13",
+    "1-14",
+    "1-15",
+    "1-16",
+    "1-17",
+    "1-18",
+    "1-19",
+    "1-20",
+    "1-21",
+    "1-22",
+    "1-23",
+    "2-0",
+    "2-1",
+    "2-2",
+    "2-3",
+    "2-4",
+    "2-5",
+    "2-6",
+    "2-7",
+    "2-8",
+    "2-9",
+    "2-10",
+    "2-11",
+    "2-12",
+    "2-13",
+    "2-14",
+    "2-15",
+    "2-16",
+    "2-17",
+    "2-18",
+    "2-19",
+    "2-20",
+    "2-21",
+    "2-22",
+    "2-23",
+    "3-0",
+    "3-1",
+    "3-2",
+    "3-3",
+    "3-4",
+    "3-5",
+    "3-6",
+    "3-7",
+    "3-8",
+    "3-9",
+    "3-10",
+    "3-11",
+    "3-12",
+    "3-13",
+    "3-14",
+    "3-15",
+    "3-16",
+    "3-17",
+    "3-18",
+    "3-19",
+    "3-20",
+    "3-21",
+    "3-22",
+    "3-23",
+    "4-0",
+    "4-1",
+    "4-2",
+    "4-3",
+    "4-4",
+    "4-5",
+    "4-6",
+    "4-7",
+    "4-8",
+    "4-9",
+    "4-10",
+    "4-11",
+    "4-12",
+    "4-13",
+    "4-14",
+    "4-15",
+    "4-16",
+    "4-17",
+    "4-18",
+    "4-19",
+    "4-20",
+    "4-21",
+    "4-22",
+    "4-23",
+    "5-0",
+    "5-1",
+    "5-2",
+    "5-3",
+    "5-4",
+    "5-5",
+    "5-6",
+    "5-7",
+    "5-8",
+    "5-9",
+    "5-10",
+    "5-11",
+    "5-12",
+    "5-13",
+    "5-14",
+    "5-15",
+    "5-16",
+    "5-17",
+    "5-18",
+    "5-19",
+    "5-20",
+    "5-21",
+    "5-22",
+    "5-23",
+    "6-0",
+    "6-1",
+    "6-2",
+    "6-3",
+    "6-4",
+    "6-5",
+    "6-6",
+    "6-7",
+    "6-8",
+    "6-9",
+    "6-10",
+    "6-11",
+    "6-12",
+    "6-13",
+    "6-14",
+    "6-15",
+    "6-16",
+    "6-17",
+    "6-18",
+    "6-19",
+    "6-20",
+    "6-21",
+    "6-22",
+    "6-23",
+    "7-0",
+    "7-1",
+    "7-2",
+    "7-3",
+    "7-4",
+    "7-5",
+    "7-6",
+    "7-7",
+    "7-8",
+    "7-9",
+    "7-10",
+    "7-11",
+    "7-12",
+    "7-13",
+    "7-14",
+    "7-15",
+    "7-16",
+    "7-17",
+    "7-18",
+    "7-19",
+    "7-20",
+    "7-21",
+    "7-22",
+    "7-23"
+  ],
+  "description": "Datalot Campaign",
+  "filter": "if(lead.insurance &amp;&amp; lead.insurance.previously_denied &amp;&amp; lead.insurance.currently_insured) result = true;",
+  "name": "Datalot Campaign",
+  "procedure": {
+    "name": "default",
+    "options": {}
+  },
+  "shippers": [
+    {
+      "map_id": "11c05dfd-ebe3-43b2-a675-561bfeee1db9",
+      "options": {
+        "format": "xml",
+        "root": "contact_create",
+        "method": "POST",
+        "uri": "https://api.datalot.com/contact/create/v2"
+      },
+      "strategy": "http"
+    }
+  ],
+  "status": "paused",
+  "strategy": {
+    "name": "oversell",
+    "options": {}
+  },
+  "updated": r.now(),
+  "vertical_id": "health-insurance"
+}) <span class="right_container"> <button class="btn load_query" data-id="44">Load</button> <button class="btn delete_query" data-id="44">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_45"> <div class="query_id">[46]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns') <span class="right_container"> <button class="btn load_query" data-id="45">Load</button> <button class="btn delete_query" data-id="45">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_46"> <div class="query_id">[47]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns').get('31289e63-f2f9-491a-8613-c6a63263cfe7').update({status: 'active'}) <span class="right_container"> <button class="btn load_query" data-id="46">Load</button> <button class="btn delete_query" data-id="46">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_47"> <div class="query_id">[48]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns').get('31289e63-f2f9-491a-8613-c6a63263cfe7') <span class="right_container"> <button class="btn load_query" data-id="47">Load</button> <button class="btn delete_query" data-id="47">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_48"> <div class="query_id">[49]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns').get('31289e63-f2f9-491a-8613-c6a63263cfe7').update({bid: 100, strategy: {name: 'exclusive'}}) <span class="right_container"> <button class="btn load_query" data-id="48">Load</button> <button class="btn delete_query" data-id="48">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_49"> <div class="query_id">[50]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('campaigns').get('31289e63-f2f9-491a-8613-c6a63263cfe7') <span class="right_container"> <button class="btn load_query" data-id="49">Load</button> <button class="btn delete_query" data-id="49">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_50"> <div class="query_id">[51]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('purchase').get('31289e63-f2f9-491a-8613-c6a63263cfe7') <span class="right_container"> <button class="btn load_query" data-id="50">Load</button> <button class="btn delete_query" data-id="50">Remove</button> <img src="./s_files/warning-icon.png" class="broken_query" title="This query produced an error"> </span> </span> </div> </li>    <li class="query_history " id="query_history_51"> <div class="query_id">[52]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('purchase') <span class="right_container"> <button class="btn load_query" data-id="51">Load</button> <button class="btn delete_query" data-id="51">Remove</button> <img src="./s_files/warning-icon.png" class="broken_query" title="This query produced an error"> </span> </span> </div> </li>    <li class="query_history " id="query_history_52"> <div class="query_id">[53]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('maps') <span class="right_container"> <button class="btn load_query" data-id="52">Load</button> <button class="btn delete_query" data-id="52">Remove</button>  </span> </span> </div> </li>    <li class="query_history " id="query_history_53"> <div class="query_id">[54]</div> <div class="query_history_content"> <span class="query">r.db('nextgen').table('leads').get('1f80ce23-b922-49ea-a774-65314021a0fb') <span class="right_container"> <button class="btn load_query" data-id="53">Load</button> <button class="btn delete_query" data-id="53">Remove</button>  </span> </span> </div> </li>  </ul> </div></div> <div class="pane"><div class="slider" style="height: 20px; top: -19.70254355612214px;"></div></div></div> <div class="nano_border nano_border_bottom" style="display: none;"></div> </div> <div class="input_query_full_container"> <div class="input_query_container"> <div class="suggestion_full_container" style="margin-top: 13px; left: 100px;"> <div class="suggestion_list_container"> <ul class="suggestion_name_list" style="display: none;"></ul> </div> <div class="suggestion_description" style="display: none;"> <p><span class="description_name">table</span><span class="description_arguments">(name[, {useOutdated: false}])</span></p>  <p>   List of tables in nextgen: <strong>campaigns, purchases, companies, leads, zip_codes, verticals, npanxx, maps</strong>   </p> <div class="separation"></div>  <p></p><p>Select all documents in a table. This command can be chained with other commands to do
+further processing on the data.</p><p></p> <div class="db_table_available"></div> <div class="separation"></div> <p><strong>Example:</strong> Return all documents in the table 'marvel' of the default database.</p>
+<p><code>r.table('marvel').run(conn, callback)</code></p>  </div> </div> <div class="suggestion_description_arrow arrow" style="margin-top: 13px; margin-left: 235px; display: none;"></div> <div class="suggestion_description_arrow_overlay arrow" style="margin-top: 13px; margin-left: 235px; display: none;"></div> <textarea class="input_query" id="input_query" style="display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap CodeMirror-focused" style="width: 100%; height: auto;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 243px;"><textarea autocorrect="off" autocapitalize="off" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none; font-size: 4px;"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 30px; min-height: 18px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div style="position: relative; min-height: 100%;"><div class="CodeMirror-sizer" style="margin-left: 30px; min-height: 21px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span class="cm-variable">r</span><span>.</span><span class="cm-property">d</span><span class="cm-property">b</span><span>(</span><span class="cm-string">'</span><span class="cm-string">n</span><span class="cm-string">e</span><span class="cm-string">x</span><span class="cm-string">t</span><span class="cm-string">g</span><span class="cm-string">e</span><span class="cm-string">n</span><span class="cm-string">'</span><span>)</span><span>.</span><span class="cm-property">t</span><span class="cm-property">a</span><span class="cm-property">b</span><span class="cm-property">l</span><span class="cm-property">e</span><span>(</span><span class="cm-string">'</span><span class="cm-string">m</span><span class="cm-string">a</span><span class="cm-string">p</span><span class="cm-string">'</span><span>)</span></pre></div><div style="position: relative; z-index: 1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 188px; top: 0px; width: 40px; height: 13px;"></div></div><div><div style="position: relative;"><div style="position: absolute; left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre><span class="cm-variable">r</span>.<span class="cm-property">db</span>(<span class="cm-string">'nextgen'</span>).<span class="cm-property">table</span>(<span class="cm-string">'map'</span>)</pre></div></div><div class="CodeMirror-cursor" style="left: 212px; top: 0px; height: 13px; visibility: hidden;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none; visibility: hidden;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 21px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div></div></div></div></div> <div class="button_container"> <button class="btn button_query execute_query">Run</button> <button class="btn button_query clear_query">Clear</button> </div> </div> <div class="loading_query"> <img src="./s_files/ajax-loader.gif" class="loading_query_img" style="display: none;"> </div> </div> <div class="results_container"><div class="result_view"> <div class="results_header"> <ul class="nav nav-tabs change_view_container" "=""> <li><a href="http://rethink1.nextgenleads.com:8080/#profile_view" class="link_to_profile_view">Query profile</a></li> <li class="active"><a href="http://rethink1.nextgenleads.com:8080/#raw_view" class="link_to_raw_view active">Raw view</a></li> <li><a href="http://rethink1.nextgenleads.com:8080/#table_view" class="link_to_table_view">Table view</a></li> <li><a href="http://rethink1.nextgenleads.com:8080/#tree_view" class="link_to_tree_view">Tree view</a></li> </ul> <p class="metadata">  Executed in 155ms.  1 row returned , 1 displayed,   </p> </div> <div class="wrapper_scrollbar" style="display: none; overflow: hidden;"><div class="scrollbar_fake_content"></div></div> <div class="tab-content"> <div class="results profile_view_container" style="display: none;"> <div class="results_wrap profile_view"> <div class="profile_summary_container"></div> <button class="btn copy_profile" data-clipboard-text="null" style="display: none;">Copy to clipboard</button> <div class="profile_container"></div> </div> </div> <div class="results tree_view_container" style="display: none;"> <div class="results_wrap tree_view"><div class="json_tree_container"></div> </div> </div> <div class="results table_view_container" style="display: none;"> <div class="results_wrap table_view"></div> </div> <div class="results raw_view_container" style="display: block;"> <div class="raw_view_container raw_view"> <textarea class="raw_view_textarea" style="height: 206px;">{"created":{"$reql_type$":"TIME","epoch_time":1397495552.896,"timezone":"+00:00"},"id":"1f80ce23-b922-49ea-a774-65314021a0fb","lead":{"@meta":{"campaign_content":null,"campaign_medium":null,"campaign_name":null,"campaign_source":null,"ip_address":"108.162.218.101"},"children":[],"conditions":{"heart_attack":"true","pregnant":"true","smoker":"true","stroke":"true"},"confirmed-phone":"yes","contact":{"addresses":[{"city":"FOUNTAIN HILLS","state":"AZ","street1":"12345 Fake","zip":"85268"}],"emails":[{"address":"fake@email.com"}],"phones":[{"number":"(480) 837-5555"}]},"convictions":{"dui":null},"demographics":{"employment":{"income":{"actual":"54"}}},"dob":{"day":"06","month":"06","year":"2007"},"family_conditions":{"cancer":null,"diabeties":null,"heart":null},"insurance":{"currently_insured":"true","eligibilities":{"social-security-disability":"true"},"previously_denied":"false"},"ip_address":"199.27.128.25","major-conditions":"yes","medications":null,"meta":{"campaign":null,"domain":null,"ip":null,"medium":null,"source":null,"tcpa_compliant":null},"name":{"first":"TEST-1","last":"TEST"},"physiology":{"height":"66","sex":"male","weight":"355"},"spouse":null,"vertical":"health-insurance"},"sold":0,"updated":{"$reql_type$":"TIME","epoch_time":1397495552.896,"timezone":"+00:00"},"vertical_id":"health-insurance"}</textarea> </div> </div> </div>    </div></div> </div> </div></div> <div id="modal-dialog"></div> </div> </div> <div id="footer"> <div class="container"> <ul> <li><a href="http://rethinkdb.com/docs/">Documentation</a></li> <li><a href="http://rethinkdb.com/api/">API</a></li> <li><a href="http://groups.google.com/group/rethinkdb">Google Groups</a></li> <li><a href="irc://chat.freenode.net/#rethinkdb">#rethinkdb on freenode</a></li> <li><a href="https://github.com/rethinkdb/rethinkdb/issues">Github</a></li> <li><a href="http://rethinkdb.com/community/">Community</a></li>  </ul> </div> </div> <ul class="typeahead dropdown-menu"></ul><div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" data-clipboard-ready="true" style="position: absolute; left: -9999px; top: -9999px; width: 15px; height: 15px; z-index: 9999;">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="js/ZeroClipboard.swf?nocache=1397493923748">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="">         <embed src="js/ZeroClipboard.swf?nocache=1397493923749" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="" scale="exactfit">                </object></div></body></html>

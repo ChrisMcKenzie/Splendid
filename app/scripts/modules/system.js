@@ -5,15 +5,16 @@ angular.module('splendid.system', ['splendid.filesystem']).factory('UI', functio
 
 	return {
         init: function(){
+          var gui = require('nw.gui');
+          var win = gui.Window.get();
+          var menubar = new gui.Menu({ type: 'menubar' });
+          var file = new gui.Menu();
+          var help = new gui.Menu();
+          win.menu = menubar;
+          win.menu.insert(new gui.MenuItem({ label: 'File', submenu: file}), 1);
+          win.menu.append(new gui.MenuItem({ label: 'Help', submenu: help}));
 
-        },
-        chooseFile: function(name) {
-            var chooser = document.querySelector(name);
-            chooser.addEventListener("change", function(evt) {
-
-            }, false);
-
-            chooser.click();
+          file.insert(new gui.MenuItem({label: 'Open'}));
         },
         openFile: function(){
             File.open().then(function(file){
@@ -24,11 +25,13 @@ angular.module('splendid.system', ['splendid.filesystem']).factory('UI', functio
         switchFile: function(name){
             File.setCurrentFile(File.get(name));
         },
-        saveFile: function(file){
-            console.log(file);
-            File.save(file).then(function(){
+        saveFile: function(){
+            var self = this;
+            File.save(File.getCurrentFile()).then(function(file){
                 //console.log(file.name + ' saved!');
-                this.setStatus('File saved...');
+                console.log(file);
+                self.setStatus('File saved...');
+                console.log('file saved...' );
             });
         },
         closeFile: function(file){

@@ -1,5 +1,5 @@
 {
-  "name": "splendid",
+  "name": "Splendid",
   "main": "index.html",
   "version": "0.0.1",
   "single-instance": true,
@@ -12,5 +12,9 @@
     "toolbar": false,
     "frame": false
   },
-  "chromium-args": "--child-clean-exit"
+  "chromium-args": "--child-clean-exit",
+  "dependencies": {
+    "gaze": "^0.5.1",
+    "mime": "^1.2.11"
+  }
 }

@@ -243,7 +243,7 @@ angular.module('splendid.settings', ['splendid.config']).factory('Settings', fun
         transclude: true,
         templateUrl: BASE_TEMPLATE_PATH + 'settings-pane.html',
         controller: function($scope){
-            console.log($scope);
+            // console.log($scope);
         },
         link: function(/*$scope, element, attrs, sSettingsCtrl*/) {
             //console.log($scope.$eval(attrs.settings));

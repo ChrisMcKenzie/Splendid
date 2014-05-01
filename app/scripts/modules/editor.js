@@ -76,7 +76,7 @@ angular.module('splendid.editor', ['splendid.settings'])
          * Set Mode Based on FilePath
          */
         setMode: function(file){
-            console.log(window.ace.require('ace/ext/modelist').getModeForPath(file));
+            //console.log(window.ace.require('ace/ext/modelist').getModeForPath(file));
             this.mode = window.ace.require('ace/ext/modelist').getModeForPath(file);
         }
     };
@@ -146,9 +146,13 @@ angular.module('splendid.editor', ['splendid.settings'])
             Editor.register($scope.editor);
 
             attrs.$observe('ngModel', function(value){ // Got ng-model bind path here
-                $scope.$watch(value,function(newValue){ // Watch given path for changes
-                    $scope.session.setValue(newValue);
-                });
+              $scope.session.on('change', function(evt){
+                console.log($scope.session.getValue());
+              });
+              $scope.$watch(value,function(newValue){ // Watch given path for changes
+                  console.log(newValue);
+                  $scope.session.setValue(newValue);
+              });
             });
 
             $scope.editor.setShowFoldWidgets(true);
@@ -156,7 +160,7 @@ angular.module('splendid.editor', ['splendid.settings'])
         controller: function($scope){
 
             $scope.$watch('theme', function(theme){
-                console.log(theme);
+                // console.log(theme);
                 $scope.editor.setTheme(theme.value.id);
             }, true);
 
@@ -172,12 +176,12 @@ angular.module('splendid.editor', ['splendid.settings'])
             }, true);
 
             $scope.$watch('fontSize', function(fontSize) {
-                console.log(fontSize);
+                //console.log(fontSize);
                 $scope.editor.setFontSize(fontSize.value.size);
             }, true);
 
             $scope.$watch(function(){ return Editor.mode; }, function(mode){
-                console.log(mode);
+                // console.log(mode);
                 if(mode){
                     $scope.session.setMode(mode.mode);
                 }

@@ -14,8 +14,8 @@
         <div id="tools" class="uk-offcanvas">
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
-                    <li><a href="#" ng-click="ui.chooseFile('#file-open')">Open...</a></li>
-                    <li><a href="#" ng-click="ui.saveFile(currentFile)">Save</a></li>
+                    <li><a href="#" ng-click="ui.openFile()">Open...</a></li>
+                    <li><a href="#" ng-click="ui.saveFile()">Save</a></li>
                     <li><a ng-click="show()">Settings</a></li>
                     <li class="uk-nav-divider"></li>
                     <li class="uk-nav-header">Open</li>
@@ -56,6 +56,14 @@
 
         <script src="scripts/splendid.js"></script>
 
+        <script>
+          // var Gaze = require('gaze').Gaze;
+          // var gaze = new Gaze('**/*');
 
+          // gaze.on('all', function(event, filepath) {
+          //  if (location)
+          //    location.reload();
+          // });
+        </script>
     </body>
 </html>
