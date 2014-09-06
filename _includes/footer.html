@@ -1,0 +1,32 @@
+<footer>
+  {% if site.description_title %}
+    <h5>{{ site.description_title }}</h5>
+  {% endif %}
+  
+  {% if site.description %}
+  {{ site.description | markdownify }}
+  {% endif %}
+  <div class="foot">
+    {% if site.google_userid %}
+    <a href="https://plus.google.com/{{ site.google_userid }}">
+      <button class="google-plus"><i class="icon-google-plus"></i></button>
+    </a>
+    {% endif %}
+    {% if site.facebook_username %}
+    <a href="https://www.facebook.com/{{ site.facebook_username }}">
+      <button class="facebook"><i class="icon-facebook"></i></button>
+    </a>
+    {% endif %}
+    {% if site.twitter_username %}
+    <a href="https://twitter.com/{{ site.twitter_username }}">
+      <button class="twitter"><i class="icon-twitter"></i></button>
+    </a>
+    {% endif %}
+    {% if site.github_username %}
+    <a href="https://github.com/{{ site.github_username }}">
+      <button class="github"><i class="icon-github-alt"></i></button>
+    </a>
+    {% endif %}
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  </div>
+</footer>

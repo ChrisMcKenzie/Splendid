@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section class="post">
+  <div>
+    <h4 class="title">
+      <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+    </h4>
+    <span class="date">{{ page.date | date: "%b %-d" }}</span>
+    <div class="hashtags">
+      {% for tag in page.tags %}
+        <a class="hashtag" href="/tag/{.{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="content">
+    {{ content }}
+  </div>
+</section>

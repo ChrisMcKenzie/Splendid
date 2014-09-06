@@ -1,0 +1,14 @@
+<header>
+  <div class="title">
+    <a href="{{site.url}}" class="logo">
+      <img src="{{ "/assets/me.jpg" | prepend: site.baseurl }}" alt="">
+    </a>
+    <div class="information">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</div>
+    <!-- <nav>
+      <ul>
+        <li>Home</li>
+        <li>Projects</li>
+      </ul>
+    </nav> -->
+  </div>
+</header>

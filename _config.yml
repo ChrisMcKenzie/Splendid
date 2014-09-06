@@ -1,0 +1,29 @@
+# Site settings
+title: Christopher McKenzie
+email: chris@keyboardsurfer.com
+description_title: A little about me
+description: > # 
+  My name is Christopher McKenzie, 
+  I am a Web Application Developer In San Diego, Ca; 
+  I am currently employed at [The Control Group](http://thecontrolgroup.com).
+  
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://chrismckenzie.io" # the base hostname & protocol for your site
+twitter_username: kbsurfer
+github_username:  ChrisMcKenzie
+google_userid: 112997148822003661332
+facebook_username: cmckenzie13
+
+gems:
+  - jekyll-mentions
+  - jemoji
+
+# Build settings
+markdown: redcarpet
+redcarpet: 
+  extensions: [
+    "no_intra_emphasis",
+    "fenced_code_blocks",
+    "autolink", "strikethrough",
+    "superscript"
+  ]
